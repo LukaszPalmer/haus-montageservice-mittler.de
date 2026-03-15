@@ -12,6 +12,7 @@ const upload = multer({ dest: "uploads/" });
 
 const allowedOrigins = [
     "http://localhost:5173",
+    "https://haus-objectservice-mittler.netlify.app",
     "https://haus-montageservice-mittler.de",
     "https://www.haus-montageservice-mittler.de",
     process.env.FRONTEND_URL,
@@ -24,11 +25,9 @@ app.use(
             if (!origin || allowedOrigins.includes(origin)) {
                 return callback(null, true);
             }
-            return callback(
-                new Error("CORS blockiert diese Origin: " + origin)
-            );
+            return callback(new Error("CORS blockiert diese Origin: " + origin));
         },
-        methods: ["POST", "GET"],
+        methods: ["GET", "POST", "OPTIONS"],
         credentials: true,
     })
 );
@@ -65,9 +64,7 @@ app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
             to: mailReceiver,
             replyTo: email,
             subject: `[${type}] Neue Nachricht von ${name}`,
-            text: `Anfrage-Typ: ${type}\nName: ${name}\nE-Mail: ${email}\nTel: ${phone}\nBetreff/Bereich: ${subject}\n\nNachricht:\n${
-                message || ""
-            }`,
+            text: `Anfrage-Typ: ${type}\nName: ${name}\nE-Mail: ${email}\nTel: ${phone}\nBetreff/Bereich: ${subject}\n\nNachricht:\n${message || ""}`,
             attachments: uploadedFiles.map((file) => ({
                 filename: file.originalname,
                 path: file.path,
@@ -75,21 +72,23 @@ app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
         };
 
         await transporter.sendMail(mailOptions);
-        return res
-            .status(200)
-            .json({ success: true, message: "E-Mail erfolgreich gesendet!" });
+
+        return res.status(200).json({
+            success: true,
+            message: "E-Mail erfolgreich gesendet!",
+        });
     } catch (error) {
         console.error("Fehler beim Senden:", error);
-        return res
-            .status(500)
-            .json({ success: false, error: "Server-Fehler beim Senden." });
+        return res.status(500).json({
+            success: false,
+            error: "Server-Fehler beim Senden.",
+        });
     } finally {
         await Promise.all(
             uploadedFiles.map(async (file) => {
                 try {
                     await fs.unlink(file.path);
                 } catch {
-                    // Datei ggf. schon entfernt
                 }
             })
         );
@@ -97,6 +96,6 @@ app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, "0.0.0.0", () =>
-    console.log(`Backend läuft auf Port ${PORT}`)
-);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Backend läuft auf Port ${PORT}`);
+});
