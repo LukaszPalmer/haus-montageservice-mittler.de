@@ -17,7 +17,9 @@ const allowedOrigins = [
     "https://www.haus-montageservice-mittler.de",
     process.env.FRONTEND_URL,
     process.env.FRONTEND_URL_WWW,
-].filter(Boolean);
+]
+    .filter(Boolean)
+    .map((value) => value.trim());
 
 app.use(
     cors({
@@ -34,11 +36,16 @@ app.use(
 
 app.use(express.json());
 
-const smtpHost = process.env.IONOS_SMTP_HOST || "smtp.ionos.com";
-const smtpPort = Number(process.env.IONOS_SMTP_PORT || 587);
-const smtpUser = process.env.EMAIL_USER || process.env.IONOS_SMTP_USER;
-const smtpPass = process.env.EMAIL_PASS || process.env.IONOS_SMTP_PASS;
-const mailReceiver = process.env.EMAIL_RECEIVER || process.env.MAIL_TO;
+const smtpHost = (process.env.IONOS_SMTP_HOST || "smtp.ionos.com").trim();
+const smtpPort = Number((process.env.IONOS_SMTP_PORT || "465").trim());
+const smtpUser = (process.env.EMAIL_USER || process.env.IONOS_SMTP_USER || "").trim();
+const smtpPass = (process.env.EMAIL_PASS || process.env.IONOS_SMTP_PASS || "").trim();
+const mailReceiver = (process.env.EMAIL_RECEIVER || process.env.MAIL_TO || "").trim();
+
+console.log("SMTP HOST:", smtpHost);
+console.log("SMTP PORT:", smtpPort);
+console.log("SMTP USER:", JSON.stringify(smtpUser));
+console.log("SMTP PASS LENGTH:", smtpPass.length);
 
 const transporter = nodemailer.createTransport({
     host: smtpHost,
@@ -48,10 +55,11 @@ const transporter = nodemailer.createTransport({
         user: smtpUser,
         pass: smtpPass,
     },
-    tls: {
-        rejectUnauthorized: false,
-    },
 });
+
+transporter.verify()
+    .then(() => console.log("SMTP-Verbindung erfolgreich."))
+    .catch((err) => console.error("SMTP verify fehlgeschlagen:", err));
 
 app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
     const uploadedFiles = req.files || [];
@@ -88,8 +96,7 @@ app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
             uploadedFiles.map(async (file) => {
                 try {
                     await fs.unlink(file.path);
-                } catch {
-                }
+                } catch {}
             })
         );
     }
