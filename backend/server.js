@@ -57,7 +57,8 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-transporter.verify()
+transporter
+    .verify()
     .then(() => console.log("SMTP-Verbindung erfolgreich."))
     .catch((err) => console.error("SMTP verify fehlgeschlagen:", err));
 
