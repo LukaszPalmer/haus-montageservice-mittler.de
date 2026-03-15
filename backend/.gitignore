@@ -1,0 +1,15 @@
+# Abhängigkeiten (zu groß für Git)
+node_modules/
+
+# Sensible Daten (DEIN PASSWORT!)
+.env
+
+# Temporäre Uploads (Bewerber-PDFs)
+uploads/
+
+# Systemdateien
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
