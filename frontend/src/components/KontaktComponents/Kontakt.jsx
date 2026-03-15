@@ -4,6 +4,8 @@ import { FiPhone, FiMail, FiMapPin, FiCheckCircle } from "react-icons/fi";
 import MobileFooter from "../MobileFooter.jsx";
 import Header from "../Header.jsx";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
 function Kontakt() {
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -17,25 +19,28 @@ function Kontakt() {
         setLoading(true);
         setStatus(null);
 
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
         const data = {
-            name: e.target[0].value,
-            phone: e.target[1].value,
-            email: e.target[2].value,
-            subject: e.target[3].value,
-            message: e.target[4].value,
+            name: formData.get("name"),
+            phone: formData.get("phone"),
+            email: formData.get("email"),
+            subject: formData.get("subject"),
+            message: formData.get("message"),
             type: "KONTAKTANFRAGE",
         };
 
         try {
-            // KORREKTE URL ZUM RAILWAY BACKEND
-            const res = await fetch("https://haus-montage-backend-production.up.railway.app/api/send-email", {
+            const res = await fetch(`${API_BASE_URL}/api/send-email`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
+
             if (res.ok) {
                 setStatus("success");
-                e.target.reset(); 
+                form.reset();
                 setTimeout(() => setStatus(null), 5000);
             } else {
                 setStatus("error");
@@ -121,6 +126,7 @@ function Kontakt() {
                                             Name *
                                         </label>
                                         <input
+                                            name="name"
                                             type="text"
                                             placeholder="Name"
                                             required
@@ -132,6 +138,7 @@ function Kontakt() {
                                             Telefon *
                                         </label>
                                         <input
+                                            name="phone"
                                             type="tel"
                                             placeholder="Telefon"
                                             required
@@ -143,6 +150,7 @@ function Kontakt() {
                                             E-Mail *
                                         </label>
                                         <input
+                                            name="email"
                                             type="email"
                                             placeholder="E-Mail"
                                             required
@@ -154,6 +162,7 @@ function Kontakt() {
                                             Betreff *
                                         </label>
                                         <select
+                                            name="subject"
                                             required
                                             className={
                                                 inputClasses +
@@ -177,6 +186,7 @@ function Kontakt() {
                                         Ihre Nachricht
                                     </label>
                                     <textarea
+                                        name="message"
                                         rows="2"
                                         placeholder="Nachricht..."
                                         className={

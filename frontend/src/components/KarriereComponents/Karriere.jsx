@@ -13,14 +13,16 @@ import MobileFooter from "../MobileFooter.jsx";
 import BewerbungWorkFlow from "../KarriereComponents/BewerbungWorkflow.jsx";
 import SocialConnect from "../KarriereComponents/SocialConnect.jsx";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+
 function Karriere() {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState(null); 
-    
+    const [status, setStatus] = useState(null);
+
     const [cvName, setCvName] = useState("");
     const [letterName, setLetterName] = useState("");
 
@@ -29,27 +31,37 @@ function Karriere() {
         setLoading(true);
         setStatus(null);
 
+        const form = e.currentTarget;
         const formData = new FormData();
-        formData.append("name", e.target[0].value);
-        formData.append("email", e.target[1].value);
-        formData.append("phone", e.target[2].value);
-        formData.append("subject", e.target[3].value); 
-        formData.append("attachments", e.target[4].files[0]); 
-        if (e.target[5].files[0])
-            formData.append("attachments", e.target[5].files[0]); 
-        formData.append("message", e.target[6].value);
+
+        formData.append("name", form.elements.name.value);
+        formData.append("email", form.elements.email.value);
+        formData.append("phone", form.elements.phone.value);
+        formData.append("subject", form.elements.subject.value);
+        formData.append("message", form.elements.message.value);
         formData.append("type", "KARRIERE");
 
+        const cvFile = form.elements.cv?.files?.[0];
+        const letterFile = form.elements.letter?.files?.[0];
+
+        if (cvFile) {
+            formData.append("attachments", cvFile);
+        }
+
+        if (letterFile) {
+            formData.append("attachments", letterFile);
+        }
+
         try {
-            // KORREKTE URL ZUM RAILWAY BACKEND
-            const res = await fetch("https://haus-montage-backend-production.up.railway.app/api/send-email", {
+            const res = await fetch(`${API_BASE_URL}/api/send-email`, {
                 method: "POST",
                 body: formData,
             });
+
             if (res.ok) {
                 setStatus("success");
-                e.target.reset(); 
-                setCvName(""); 
+                form.reset();
+                setCvName("");
                 setLetterName("");
                 setTimeout(() => setStatus(null), 5000);
             } else {
@@ -142,6 +154,7 @@ function Karriere() {
                                             Vollständiger Name *
                                         </label>
                                         <input
+                                            name="name"
                                             type="text"
                                             placeholder="Vor- und Nachname"
                                             required
@@ -153,6 +166,7 @@ function Karriere() {
                                             E-Mail Adresse *
                                         </label>
                                         <input
+                                            name="email"
                                             type="email"
                                             placeholder="ihre@email.de"
                                             required
@@ -164,6 +178,7 @@ function Karriere() {
                                             Telefonnummer *
                                         </label>
                                         <input
+                                            name="phone"
                                             type="tel"
                                             placeholder="Für einen schnellen Rückruf"
                                             required
@@ -175,6 +190,7 @@ function Karriere() {
                                             Bereich *
                                         </label>
                                         <select
+                                            name="subject"
                                             required
                                             className={
                                                 inputClasses +
@@ -211,6 +227,7 @@ function Karriere() {
                                             />
                                             <span className="truncate">{cvName || "Datei auswählen"}</span>
                                             <input
+                                                name="cv"
                                                 type="file"
                                                 accept=".pdf"
                                                 required
@@ -230,6 +247,7 @@ function Karriere() {
                                             />
                                             <span className="truncate">{letterName || "Datei auswählen"}</span>
                                             <input
+                                                name="letter"
                                                 type="file"
                                                 accept=".pdf"
                                                 className="hidden"
@@ -243,6 +261,7 @@ function Karriere() {
                                         Erzähl uns kurz von dir
                                     </label>
                                     <textarea
+                                        name="message"
                                         rows="2"
                                         placeholder="Erfahrung..."
                                         className={
