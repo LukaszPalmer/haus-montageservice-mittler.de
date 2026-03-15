@@ -4,7 +4,8 @@ import { FiPhone, FiMail, FiMapPin, FiCheckCircle } from "react-icons/fi";
 import MobileFooter from "../MobileFooter.jsx";
 import Header from "../Header.jsx";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 function Kontakt() {
     useEffect(() => {
@@ -12,7 +13,7 @@ function Kontakt() {
     }, []);
 
     const [loading, setLoading] = useState(false);
-    const [status, setStatus] = useState(null); // 'success' oder 'error'
+    const [status, setStatus] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,21 +22,13 @@ function Kontakt() {
 
         const form = e.currentTarget;
         const formData = new FormData(form);
-
-        const data = {
-            name: formData.get("name"),
-            phone: formData.get("phone"),
-            email: formData.get("email"),
-            subject: formData.get("subject"),
-            message: formData.get("message"),
-            type: "KONTAKTANFRAGE",
-        };
+        formData.append("type", "KONTAKTANFRAGE");
 
         try {
             const res = await fetch(`${API_BASE_URL}/api/send-email`, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data),
+                // Header 'Content-Type' weglassen! Browser setzt ihn automatisch inkl. Boundary für FormData
+                body: formData,
             });
 
             if (res.ok) {
@@ -204,17 +197,17 @@ function Kontakt() {
                                             ? "Wird gesendet..."
                                             : "Anfrage jetzt absenden"}
                                     </button>
-
                                     {status === "success" && (
                                         <div className="flex items-center justify-center gap-2 rounded bg-green-50 p-4 text-sm font-bold text-green-700 border border-green-200 animate-fade-in">
-                                            <FiCheckCircle size={18} />
-                                            Vielen Dank! Ihre Anfrage wurde erfolgreich verschickt.
+                                            <FiCheckCircle size={18} /> Vielen
+                                            Dank! Ihre Anfrage wurde erfolgreich
+                                            verschickt.
                                         </div>
                                     )}
-
                                     {status === "error" && (
                                         <div className="rounded bg-red-50 p-4 text-sm font-bold text-red-700 border border-red-200">
-                                            Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.
+                                            Ein Fehler ist aufgetreten. Bitte
+                                            versuchen Sie es später erneut.
                                         </div>
                                     )}
                                 </div>

@@ -13,7 +13,8 @@ import MobileFooter from "../MobileFooter.jsx";
 import BewerbungWorkFlow from "../KarriereComponents/BewerbungWorkflow.jsx";
 import SocialConnect from "../KarriereComponents/SocialConnect.jsx";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const API_BASE_URL =
+    import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
 
 function Karriere() {
     useEffect(() => {
@@ -22,7 +23,6 @@ function Karriere() {
 
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState(null);
-
     const [cvName, setCvName] = useState("");
     const [letterName, setLetterName] = useState("");
 
@@ -32,25 +32,19 @@ function Karriere() {
         setStatus(null);
 
         const form = e.currentTarget;
-        const formData = new FormData();
-
-        formData.append("name", form.elements.name.value);
-        formData.append("email", form.elements.email.value);
-        formData.append("phone", form.elements.phone.value);
-        formData.append("subject", form.elements.subject.value);
-        formData.append("message", form.elements.message.value);
+        const formData = new FormData(form);
         formData.append("type", "KARRIERE");
 
+        // Wir nutzen hier direkt die Namen aus den Input-Feldern 'cv' und 'letter'
+        // Da wir Multer im Backend mit .array('attachments') nutzen, benennen wir sie um:
         const cvFile = form.elements.cv?.files?.[0];
         const letterFile = form.elements.letter?.files?.[0];
 
-        if (cvFile) {
-            formData.append("attachments", cvFile);
-        }
-
-        if (letterFile) {
-            formData.append("attachments", letterFile);
-        }
+        // Wir löschen die alten Namen aus FormData und hängen sie als 'attachments' an
+        formData.delete("cv");
+        formData.delete("letter");
+        if (cvFile) formData.append("attachments", cvFile);
+        if (letterFile) formData.append("attachments", letterFile);
 
         try {
             const res = await fetch(`${API_BASE_URL}/api/send-email`, {
@@ -140,7 +134,7 @@ function Karriere() {
                         </div>
                     </div>
                     <div className="lg:col-span-7">
-                        <div className="rounded-[4px] p-8 ">
+                        <div className="rounded-[4px] p-8">
                             <h3 className="font-heading mb-10 text-2xl font-bold uppercase tracking-tight text-[#083224]">
                                 Kurzbewerbung absenden
                             </h3>
@@ -225,14 +219,21 @@ function Karriere() {
                                                 className="text-[#2AA34D]"
                                                 size={20}
                                             />
-                                            <span className="truncate">{cvName || "Datei auswählen"}</span>
+                                            <span className="truncate">
+                                                {cvName || "Datei auswählen"}
+                                            </span>
                                             <input
                                                 name="cv"
                                                 type="file"
                                                 accept=".pdf"
                                                 required
                                                 className="hidden"
-                                                onChange={(e) => setCvName(e.target.files[0]?.name || "")}
+                                                onChange={(e) =>
+                                                    setCvName(
+                                                        e.target.files[0]
+                                                            ?.name || ""
+                                                    )
+                                                }
                                             />
                                         </label>
                                     </div>
@@ -245,13 +246,21 @@ function Karriere() {
                                                 className="text-slate-400"
                                                 size={20}
                                             />
-                                            <span className="truncate">{letterName || "Datei auswählen"}</span>
+                                            <span className="truncate">
+                                                {letterName ||
+                                                    "Datei auswählen"}
+                                            </span>
                                             <input
                                                 name="letter"
                                                 type="file"
                                                 accept=".pdf"
                                                 className="hidden"
-                                                onChange={(e) => setLetterName(e.target.files[0]?.name || "")}
+                                                onChange={(e) =>
+                                                    setLetterName(
+                                                        e.target.files[0]
+                                                            ?.name || ""
+                                                    )
+                                                }
                                             />
                                         </label>
                                     </div>
@@ -280,17 +289,17 @@ function Karriere() {
                                             : "Bewerbung absenden"}{" "}
                                         <FiSend className="transition-transform group-hover:translate-x-1" />
                                     </button>
-
                                     {status === "success" && (
                                         <div className="flex items-center justify-center gap-2 rounded bg-green-50 p-4 text-sm font-bold text-green-700 border border-green-200 animate-fade-in">
-                                            <FiCheckCircle size={18} />
-                                            Vielen Dank! Ihre Bewerbung wurde erfolgreich verschickt.
+                                            <FiCheckCircle size={18} /> Vielen
+                                            Dank! Ihre Bewerbung wurde
+                                            erfolgreich verschickt.
                                         </div>
                                     )}
-
                                     {status === "error" && (
                                         <div className="rounded bg-red-50 p-4 text-sm font-bold text-red-700 border border-red-200">
-                                            Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.
+                                            Ein Fehler ist aufgetreten. Bitte
+                                            versuchen Sie es später erneut.
                                         </div>
                                     )}
                                 </div>
