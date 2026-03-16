@@ -13,26 +13,32 @@ const upload = multer({ dest: "uploads/" });
 // --- DEBUG: Umgebungsvariablen-Check beim Start ---
 console.log("=== SERVER START ===");
 console.log("Erwarteter Port:", process.env.PORT || 5000);
-console.log("Frontend URLs:", process.env.FRONTEND_URL, process.env.FRONTEND_URL_WWW);
 
-// Konfiguration der erlaubten Origins für CORS
+// --- ROBUSTE CORS KONFIGURATION ---
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://haus-objectservice-mittler.netlify.app",
     "https://haus-montageservice-mittler.de",
     "https://www.haus-montageservice-mittler.de",
-    process.env.FRONTEND_URL,
-    process.env.FRONTEND_URL_WWW,
-].filter(Boolean).map((value) => value.trim());
+    "https://haus-montageservice-mittler-de.vercel.app" // Deine Vercel Test-URL
+];
 
 app.use(
     cors({
-        origin: (origin, callback) => {
-            if (!origin || allowedOrigins.includes(origin)) {
+        origin: function (origin, callback) {
+            // Erlaube Anfragen ohne Origin (Postman, Server-to-Server)
+            if (!origin) return callback(null, true);
+
+            // Prüfe, ob die Origin in unserer Liste ist (wir ignorieren Slashes am Ende)
+            const isAllowed = allowedOrigins.some(allowedDomain => 
+                origin.startsWith(allowedDomain)
+            );
+
+            if (isAllowed) {
                 return callback(null, true);
+            } else {
+                console.error(`[CORS FEHLER] Origin blockiert: ${origin}`);
+                return callback(new Error("CORS-Richtlinie verweigert den Zugriff."), false);
             }
-            console.error(`[CORS FEHLER] Blockierte Origin: ${origin}`);
-            return callback(new Error("CORS blockiert diese Origin: " + origin));
         },
         methods: ["GET", "POST", "OPTIONS"],
         credentials: true,
@@ -43,7 +49,7 @@ app.use(express.json());
 
 // Umgebungsvariablen laden
 const smtpHost = (process.env.IONOS_SMTP_HOST || "smtp.ionos.de").trim();
-const smtpPort = Number((process.env.IONOS_SMTP_PORT || "465").trim());
+const smtpPort = Number((process.env.IONOS_SMTP_PORT || "587").trim()); // Standardmäßig auf 587
 const smtpUser = (process.env.EMAIL_USER || "").trim();
 const smtpPass = (process.env.EMAIL_PASS || "").trim();
 const mailReceiver = (process.env.EMAIL_RECEIVER || smtpUser).trim();
@@ -52,7 +58,6 @@ if (!smtpUser || !smtpPass) {
     console.error("🚨 FEHLER: E-Mail Benutzer oder Passwort fehlen in der .env Datei!");
 }
 
-// Transporter-Konfiguration
 // Transporter-Konfiguration (Optimiert für IONOS & Timeout-Schutz)
 const transporter = nodemailer.createTransport({
     host: smtpHost,
