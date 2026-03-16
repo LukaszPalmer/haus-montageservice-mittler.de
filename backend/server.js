@@ -48,13 +48,21 @@ console.log("SMTP USER:", JSON.stringify(smtpUser));
 console.log("SMTP PASS LENGTH:", smtpPass.length);
 
 const transporter = nodemailer.createTransport({
-    host: smtpHost,
-    port: smtpPort,
-    secure: smtpPort === 465,
+    host: "smtp.ionos.com",
+    port: 465,
+    secure: true, // Muss true sein für Port 465
     auth: {
         user: smtpUser,
         pass: smtpPass,
     },
+    // Wichtig für IONOS:
+    debug: true, // Zeigt dir im Railway-Log genau an, was passiert
+    logger: true,
+    tls: {
+        // Diese Einstellung stellt sicher, dass die Verbindung nicht an 
+        // Zertifikatsfehlern von Railway-Servern scheitert
+        rejectUnauthorized: false 
+    }
 });
 
 transporter
