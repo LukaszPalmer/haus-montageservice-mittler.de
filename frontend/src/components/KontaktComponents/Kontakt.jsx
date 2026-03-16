@@ -1,12 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import { FiPhone, FiMail, FiMapPin, FiCheckCircle } from "react-icons/fi";
+import { FiCheckCircle } from "react-icons/fi";
 import MobileFooter from "../MobileFooter.jsx";
-import Header from "../Header.jsx";
+import Header from "../Header.jsx"; // Falls benötigt, sonst entfernen
 
-// DYNAMISCHE URL: Nutzt die .env Variable von Vite, mit Fallback auf die Railway-URL
-const API_BASE_URL =
-    import.meta.env.VITE_API_BASE_URL ||
-    "https://haus-montageservice-mittlerde-production.up.railway.app";
+// ERSETZE DIESEN LINK DURCH DEINEN FORMSPREE/WEB3FORMS LINK
+const FORM_ENDPOINT = "https://formspree.io/f/DEINE_FORM_ID_HIER";
 
 function Kontakt() {
     useEffect(() => {
@@ -23,14 +22,15 @@ function Kontakt() {
 
         const form = e.currentTarget;
         const formData = new FormData(form);
-        formData.append("type", "KONTAKTANFRAGE");
+        formData.append("Anfrage-Typ", "ALLGEMEINER KONTAKT"); // Hilft dir in der E-Mail
 
         try {
-            console.log("Sende Anfrage an:", `${API_BASE_URL}/api/send-email`); // Hilft dir beim Debuggen im Browser (F12)
-
-            const res = await fetch(`${API_BASE_URL}/api/send-email`, {
+            const res = await fetch(FORM_ENDPOINT, {
                 method: "POST",
-                body: formData, // Browser setzt Content-Type automatisch
+                body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
             });
 
             if (res.ok) {
@@ -38,11 +38,9 @@ function Kontakt() {
                 form.reset();
                 setTimeout(() => setStatus(null), 5000);
             } else {
-                console.error("Server antwortete mit Fehlercode:", res.status);
                 setStatus("error");
             }
         } catch (err) {
-            console.error("Fetch Fehler (Netzwerk oder CORS):", err);
             setStatus("error");
         } finally {
             setLoading(false);
@@ -123,7 +121,7 @@ function Kontakt() {
                                             Name *
                                         </label>
                                         <input
-                                            name="name"
+                                            name="Name"
                                             type="text"
                                             placeholder="Name"
                                             required
@@ -135,7 +133,7 @@ function Kontakt() {
                                             Telefon *
                                         </label>
                                         <input
-                                            name="phone"
+                                            name="Telefon"
                                             type="tel"
                                             placeholder="Telefon"
                                             required
@@ -159,7 +157,7 @@ function Kontakt() {
                                             Betreff *
                                         </label>
                                         <select
-                                            name="subject"
+                                            name="Betreff"
                                             required
                                             className={
                                                 inputClasses +
@@ -183,7 +181,7 @@ function Kontakt() {
                                         Ihre Nachricht
                                     </label>
                                     <textarea
-                                        name="message"
+                                        name="Nachricht"
                                         rows="2"
                                         placeholder="Nachricht..."
                                         className={

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import {
     FiBriefcase,
@@ -12,10 +13,8 @@ import MobileFooter from "../MobileFooter.jsx";
 import BewerbungWorkFlow from "../KarriereComponents/BewerbungWorkflow.jsx";
 import SocialConnect from "../KarriereComponents/SocialConnect.jsx";
 
-// DYNAMISCHE URL: Nutzt die .env Variable von Vite, mit Fallback auf die Railway-URL
-const API_BASE_URL =
-    import.meta.env.VITE_API_BASE_URL ||
-    "https://haus-montageservice-mittlerde-production.up.railway.app";
+// ERSETZE DIESEN LINK DURCH DEINEN FORMSPREE/WEB3FORMS LINK
+const FORM_ENDPOINT = "https://formspree.io/f/DEINE_FORM_ID_HIER";
 
 function Karriere() {
     useEffect(() => {
@@ -34,25 +33,15 @@ function Karriere() {
 
         const form = e.currentTarget;
         const formData = new FormData(form);
-        formData.append("type", "KARRIERE");
-
-        const cvFile = form.elements.cv?.files?.[0];
-        const letterFile = form.elements.letter?.files?.[0];
-
-        formData.delete("cv");
-        formData.delete("letter");
-        if (cvFile) formData.append("attachments", cvFile);
-        if (letterFile) formData.append("attachments", letterFile);
+        formData.append("Anfrage-Typ", "KARRIERE"); // Hilft dir in der E-Mail
 
         try {
-            console.log(
-                "Sende Karriere-Anfrage an:",
-                `${API_BASE_URL}/api/send-email`
-            ); // Hilft beim Debuggen
-
-            const res = await fetch(`${API_BASE_URL}/api/send-email`, {
+            const res = await fetch(FORM_ENDPOINT, {
                 method: "POST",
                 body: formData,
+                headers: {
+                    Accept: "application/json",
+                },
             });
 
             if (res.ok) {
@@ -62,11 +51,9 @@ function Karriere() {
                 setLetterName("");
                 setTimeout(() => setStatus(null), 5000);
             } else {
-                console.error("Server antwortete mit Fehlercode:", res.status);
                 setStatus("error");
             }
         } catch (err) {
-            console.error("Fetch Fehler (Netzwerk oder CORS):", err);
             setStatus("error");
         } finally {
             setLoading(false);
@@ -153,7 +140,7 @@ function Karriere() {
                                             Vollständiger Name *
                                         </label>
                                         <input
-                                            name="name"
+                                            name="Name"
                                             type="text"
                                             placeholder="Vor- und Nachname"
                                             required
@@ -177,7 +164,7 @@ function Karriere() {
                                             Telefonnummer *
                                         </label>
                                         <input
-                                            name="phone"
+                                            name="Telefon"
                                             type="tel"
                                             placeholder="Für einen schnellen Rückruf"
                                             required
@@ -189,7 +176,7 @@ function Karriere() {
                                             Bereich *
                                         </label>
                                         <select
-                                            name="subject"
+                                            name="Bereich"
                                             required
                                             className={
                                                 inputClasses +
@@ -228,7 +215,7 @@ function Karriere() {
                                                 {cvName || "Datei auswählen"}
                                             </span>
                                             <input
-                                                name="cv"
+                                                name="Lebenslauf"
                                                 type="file"
                                                 accept=".pdf"
                                                 required
@@ -256,7 +243,7 @@ function Karriere() {
                                                     "Datei auswählen"}
                                             </span>
                                             <input
-                                                name="letter"
+                                                name="Anschreiben"
                                                 type="file"
                                                 accept=".pdf"
                                                 className="hidden"
@@ -275,7 +262,7 @@ function Karriere() {
                                         Erzähl uns kurz von dir
                                     </label>
                                     <textarea
-                                        name="message"
+                                        name="Nachricht"
                                         rows="2"
                                         placeholder="Erfahrung..."
                                         className={
