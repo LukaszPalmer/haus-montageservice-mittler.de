@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 import React, { useEffect, useState } from "react";
 import { FiPhone, FiMail, FiMapPin, FiCheckCircle } from "react-icons/fi";
 import MobileFooter from "../MobileFooter.jsx";
