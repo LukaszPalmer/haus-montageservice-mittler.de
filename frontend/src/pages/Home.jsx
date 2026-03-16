@@ -21,6 +21,15 @@ function Home() {
         window.scrollTo(0, 0);
     };
 
+    // Funktion für weiches Scrollen zur ersten Dienstleistung
+    const scrollToLeistungen = (e) => {
+        e.preventDefault();
+        const element = document.getElementById("erste-dienstleistung");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     const leistungen = [
         {
             title: "Malerarbeiten",
@@ -87,7 +96,8 @@ function Home() {
                         </p>
                         <div className="mt-12">
                             <a
-                                href="#leistungen-start"
+                                href="#erste-dienstleistung"
+                                onClick={scrollToLeistungen}
                                 className="inline-flex items-center justify-center bg-[#2AA34D] px-8 py-4 font-sans text-sm font-bold uppercase tracking-widest text-white shadow-lg"
                             >
                                 Leistungen <FiArrowDown className="ml-2" />
@@ -121,7 +131,8 @@ function Home() {
                             </p>
                             <div className="mt-10 flex gap-5">
                                 <a
-                                    href="#leistungen-start"
+                                    href="#erste-dienstleistung"
+                                    onClick={scrollToLeistungen}
                                     className="bg-[#2AA34D] px-8 py-4 text-[1rem] font-bold uppercase tracking-wider text-white shadow-md transition hover:bg-[#238A40]"
                                 >
                                     Leistungen
@@ -166,7 +177,8 @@ function Home() {
                                 </p>
                                 <div className="mt-12 flex items-center gap-6">
                                     <a
-                                        href="#leistungen-start"
+                                        href="#erste-dienstleistung"
+                                        onClick={scrollToLeistungen}
                                         className="group flex items-center gap-3 bg-[#2AA34D] px-10 py-5 text-[1.1rem] font-bold uppercase tracking-widest text-white shadow-2xl transition-all hover:bg-[#238A40]"
                                     >
                                         Leistungen entdecken <FiArrowDown />
@@ -218,61 +230,64 @@ function Home() {
                 </p>
             </div>
 
-            {/* --- LEISTUNGEN GRID (TABLET/DESKTOP) --- */}
-            <div className="hidden md:block mx-auto w-full max-w-[1700px] px-10 pb-24 lg:px-16 xl:px-20 2xl:max-w-[1900px] min-[2200px]:max-w-[2200px]">
-                <div className="grid grid-cols-2 gap-10 xl:gap-14">
-                    {leistungen.map((item) => (
-                        <article
-                            key={item.title}
-                            className={`group relative overflow-hidden bg-white shadow-sm border border-slate-100 ${item.span}`}
-                        >
-                            <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:h-[450px] xl:h-[500px]">
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500" />
-                            </div>
+            {/* Sprungmarke / Wrapper für die ersten Dienstleistungen */}
+            <div id="erste-dienstleistung">
+                {/* --- LEISTUNGEN GRID (TABLET/DESKTOP) --- */}
+                <div className="hidden md:block mx-auto w-full max-w-[1700px] px-10 pb-24 lg:px-16 xl:px-20 2xl:max-w-[1900px] min-[2200px]:max-w-[2200px]">
+                    <div className="grid grid-cols-2 gap-10 xl:gap-14">
+                        {leistungen.map((item) => (
+                            <article
+                                key={item.title}
+                                className={`group relative overflow-hidden bg-white shadow-sm border border-slate-100 ${item.span}`}
+                            >
+                                <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:h-[450px] xl:h-[500px]">
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500" />
+                                </div>
 
-                            <div className="p-8 lg:p-10 xl:p-12">
-                                <h3 className="font-heading text-3xl font-extrabold text-[#083224] lg:text-4xl xl:text-5xl">
-                                    {item.title}
-                                </h3>
-                                <p className="mt-6 font-sans text-lg leading-relaxed text-[#42514A] xl:text-xl lg:max-w-2xl">
-                                    {item.text}
-                                </p>
-                                <Link
-                                    to={item.link}
+                                <div className="p-8 lg:p-10 xl:p-12">
+                                    <h3 className="font-heading text-3xl font-extrabold text-[#083224] lg:text-4xl xl:text-5xl">
+                                        {item.title}
+                                    </h3>
+                                    <p className="mt-6 font-sans text-lg leading-relaxed text-[#42514A] xl:text-xl lg:max-w-2xl">
+                                        {item.text}
+                                    </p>
+                                    <Link
+                                        to={item.link}
+                                        onClick={scrollToTop}
+                                        className="mt-8 inline-flex items-center gap-2 font-sans text-[1rem] font-bold uppercase tracking-widest text-[#2AA34D] hover:text-[#083224] transition-colors"
+                                    >
+                                        Details ansehen <FiArrowUpRight />
+                                    </Link>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+
+                {/* --- MOBILE LEISTUNGEN --- */}
+                <div className="md:hidden px-6 pb-20 space-y-12">
+                    {leistungen.map((item) => (
+                        <article key={item.title} className="overflow-hidden">
+                            <img src={item.image} alt={item.title} className="h-64 w-full object-cover rounded-sm shadow-md" />
+                            <div className="pt-6">
+                                <h3 className="font-heading text-2xl font-bold text-[#083224]">{item.title}</h3>
+                                <p className="mt-3 font-sans text-[#42514A] leading-7">{item.text}</p>
+                                <Link 
+                                    to={item.link} 
                                     onClick={scrollToTop}
-                                    className="mt-8 inline-flex items-center gap-2 font-sans text-[1rem] font-bold uppercase tracking-widest text-[#2AA34D] hover:text-[#083224] transition-colors"
+                                    className="mt-5 inline-block text-[#2AA34D] font-bold uppercase text-sm tracking-widest"
                                 >
-                                    Details ansehen <FiArrowUpRight />
+                                    Mehr erfahren
                                 </Link>
                             </div>
                         </article>
                     ))}
                 </div>
-            </div>
-
-            {/* --- MOBILE LEISTUNGEN --- */}
-            <div className="md:hidden px-6 pb-20 space-y-12">
-                {leistungen.map((item) => (
-                    <article key={item.title} className="overflow-hidden">
-                        <img src={item.image} alt={item.title} className="h-64 w-full object-cover rounded-sm shadow-md" />
-                        <div className="pt-6">
-                            <h3 className="font-heading text-2xl font-bold text-[#083224]">{item.title}</h3>
-                            <p className="mt-3 font-sans text-[#42514A] leading-7">{item.text}</p>
-                            <Link 
-                                to={item.link} 
-                                onClick={scrollToTop}
-                                className="mt-5 inline-block text-[#2AA34D] font-bold uppercase text-sm tracking-widest"
-                            >
-                                Mehr erfahren
-                            </Link>
-                        </div>
-                    </article>
-                ))}
             </div>
 
             <MobileLuxuryShapeSection />
