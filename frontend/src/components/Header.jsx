@@ -13,7 +13,7 @@ import HeaderSearch from "../components/HeaderComponents/HeaderSearch.jsx";
 import LogoMittlerTabletQuery from "../media/rdy.png";
 import LogoMittlerLaptopQuery from "../media/laptopQuery.png";
 import HeaderGrowth from "./HeaderComponents/HeaderGrowth.jsx";
-import New_SVG_Logo_MQ from "../media/New_SVG_Logo_MQ.svg";
+import New_PNG_Logo_Mobile from "../media/New_PNG_Logo_Mobile.png";
 
 // DEFINITION AUSSERHALB DER HEADER-FUNKTION (BEHEBT DEN VSCODE FEHLER)
 const SocialIcons = ({ className }) => (
@@ -107,7 +107,7 @@ function Header() {
                         className="relative z-10 shrink-0 transition-transform duration-500 hover:scale-[1.02]"
                     >
                         <img
-                            src={New_SVG_Logo_MQ}
+                            src={New_PNG_Logo_Mobile}
                             alt="Logo"
                             className="h-10 w-auto md:hidden"
                         />
