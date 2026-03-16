@@ -58,7 +58,7 @@ if (!smtpUser || !smtpPass) {
     console.error("🚨 FEHLER: E-Mail Benutzer oder Passwort fehlen in der .env Datei!");
 }
 
-// Transporter-Konfiguration (Optimiert für IONOS & Timeout-Schutz)
+// Transporter-Konfiguration (Optimiert für IONOS & mit DEBUG-Modus)
 const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
@@ -67,8 +67,9 @@ const transporter = nodemailer.createTransport({
         user: smtpUser,
         pass: smtpPass,
     },
-    // WICHTIG: Timeouts! Verhindert endloses "Ausstehend" im Frontend
-    connectionTimeout: 10000, // Bricht nach 10 Sek ab, wenn Server nicht erreichbar
+    logger: true, // <--- GIBT JEDEN SCHRITT IM LOG AUS
+    debug: true,  // <--- ZEIGT UNS GENAU, WO ES HÄNGT
+    connectionTimeout: 10000, 
     greetingTimeout: 10000,
     socketTimeout: 10000,
     tls: {
