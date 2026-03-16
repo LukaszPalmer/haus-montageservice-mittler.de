@@ -299,6 +299,8 @@ function Karriere() {
                     </div>
                 </div>
             </div>
+            <BewerbungWorkFlow/>
+            <SocialConnect/>
             <MobileFooter />
         </section>
     );

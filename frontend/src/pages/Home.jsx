@@ -8,6 +8,8 @@ import HausmeisterArbeiten from "../media/HausmeisterCheckArbeiten.png";
 import PutzArbeiten from "../media/Putzen_Banner.png";
 import TabletQueryBanner from "../media/TabletQueryBanner.png";
 
+import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
+
 import MobileLuxuryShapeSection from "../components/MobileLuxuryShapeSection";
 import MobileTrustSection from "../components/MobileTrustSection";
 import MobileJobsApplicationSection from "../components/MobileJobsApplicationSection";
@@ -294,6 +296,7 @@ function Home() {
             <MobileJobsApplicationSection />
             <EinsatzgebietSection />
             <MobileTrustSection />
+            <SocialConnect/>
             <MobileFooter />
         </section>
     );
