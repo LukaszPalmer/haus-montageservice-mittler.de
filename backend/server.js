@@ -1,13 +1,15 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import nodemailer from "nodemailer";
 import multer from "multer";
+import { Resend } from "resend";
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const parseAllowedOrigins = () => {
     const raw = process.env.ALLOWED_ORIGINS || "";
@@ -41,33 +43,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: String(process.env.SMTP_SECURE).toLowerCase() === "true",
-    auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-    },
-    connectionTimeout: 15000,
-    greetingTimeout: 15000,
-    socketTimeout: 20000,
-    tls: {
-        minVersion: "TLSv1.2",
-    },
-});
-
-const sendMailWithTimeout = (mailOptions, timeoutMs = 20000) =>
-    Promise.race([
-        transporter.sendMail(mailOptions),
-        new Promise((_, reject) =>
-            setTimeout(
-                () => reject(new Error("SMTP-Timeout nach 20 Sekunden")),
-                timeoutMs
-            )
-        ),
-    ]);
-
 const upload = multer({
     storage: multer.memoryStorage(),
     limits: {
@@ -85,7 +60,8 @@ const upload = multer({
     },
 });
 
-const getMailTarget = () => process.env.MAIL_TO || process.env.SMTP_USER;
+const getMailTarget = () => process.env.MAIL_TO;
+const getFromAddress = () => process.env.RESEND_FROM;
 
 const buildContactHtml = ({ name, telefon, email, betreff, nachricht }) => `
   <h2>Neue Kontaktanfrage</h2>
@@ -109,8 +85,11 @@ const buildCareerHtml = ({ name, telefon, email, bereich, nachricht }) => `
       /\n/g,
       "<br/>"
   )}</p>
-  <p><strong>Anhänge:</strong> Lebenslauf${nachricht ? "" : ""}</p>
 `;
+
+app.get("/", (req, res) => {
+    res.status(200).send("Backend läuft.");
+});
 
 app.get("/api/health", (req, res) => {
     res.status(200).json({ ok: true, message: "Backend läuft." });
@@ -127,9 +106,20 @@ app.post("/api/contact", upload.none(), async (req, res) => {
             });
         }
 
-        await sendMailWithTimeout({
-            from: `Website Kontakt <${process.env.SMTP_USER}>`,
-            to: getMailTarget(),
+        if (
+            !process.env.RESEND_API_KEY ||
+            !getFromAddress() ||
+            !getMailTarget()
+        ) {
+            return res.status(500).json({
+                success: false,
+                message: "Server-Konfiguration für E-Mail fehlt.",
+            });
+        }
+
+        const { error } = await resend.emails.send({
+            from: getFromAddress(),
+            to: [getMailTarget()],
             replyTo: email,
             subject: `Neue Kontaktanfrage: ${Betreff}`,
             text: [
@@ -148,6 +138,14 @@ app.post("/api/contact", upload.none(), async (req, res) => {
                 nachricht: Nachricht,
             }),
         });
+
+        if (error) {
+            console.error("Resend-Fehler bei /api/contact:", error);
+            return res.status(500).json({
+                success: false,
+                message: "E-Mail konnte nicht versendet werden.",
+            });
+        }
 
         return res.status(200).json({
             success: true,
@@ -182,6 +180,17 @@ app.post(
                 });
             }
 
+            if (
+                !process.env.RESEND_API_KEY ||
+                !getFromAddress() ||
+                !getMailTarget()
+            ) {
+                return res.status(500).json({
+                    success: false,
+                    message: "Server-Konfiguration für E-Mail fehlt.",
+                });
+            }
+
             const attachments = [
                 {
                     filename: lebenslauf.originalname,
@@ -198,9 +207,9 @@ app.post(
                 });
             }
 
-            await sendMailWithTimeout({
-                from: `Website Karriere <${process.env.SMTP_USER}>`,
-                to: getMailTarget(),
+            const { error } = await resend.emails.send({
+                from: getFromAddress(),
+                to: [getMailTarget()],
                 replyTo: email,
                 subject: `Neue Bewerbung: ${Name} (${Bereich})`,
                 text: [
@@ -226,6 +235,14 @@ app.post(
                 }),
                 attachments,
             });
+
+            if (error) {
+                console.error("Resend-Fehler bei /api/career:", error);
+                return res.status(500).json({
+                    success: false,
+                    message: "Bewerbung konnte nicht versendet werden.",
+                });
+            }
 
             return res.status(200).json({
                 success: true,
@@ -259,15 +276,6 @@ app.use((error, req, res, next) => {
 
     return next();
 });
-
-(async () => {
-    try {
-        await transporter.verify();
-        console.log("SMTP-Verbindung erfolgreich aufgebaut.");
-    } catch (error) {
-        console.error("SMTP-Verbindung fehlgeschlagen:", error.message);
-    }
-})();
 
 app.listen(PORT, () => {
     console.log(`Server läuft auf Port ${PORT}`);
