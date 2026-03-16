@@ -218,18 +218,20 @@ function Home() {
                 </div>
             </div>
 
-            {/* --- MOBILE INTRO (NEU) --- */}
-            <div id="leistungen-start" className="md:hidden px-6 pt-16 pb-12">
-                <span className="font-sans text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#2AA34D]">
-                    Unsere Expertise
-                </span>
-                <h2 className="font-heading mt-4 text-3xl font-extrabold leading-[1.1] text-[#083224]">
-                    Exklusive <span className="text-[#2AA34D]">Hausdienstleistungen</span> <br />
-                    nach Maß.
-                </h2>
-                <p className="mt-6 font-sans text-[1.05rem] leading-relaxed text-[#42514A]">
-                    Entdecken Sie unsere maßgeschneiderten Lösungen für Ihr Objekt. Wir vereinen verschiedene Gewerke unter einem Dach für Ihren höchsten Komfort.
-                </p>
+            {/* --- MOBILE & TABLET INTRO (Sichtbar auf md und kleiner als lg) --- */}
+            <div id="leistungen-start" className="lg:hidden px-6 pt-16 pb-12 md:px-10 md:pt-24 md:pb-16">
+                <div className="md:max-w-[700px]">
+                    <span className="font-sans text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#2AA34D] md:text-[0.9rem]">
+                        Unsere Expertise
+                    </span>
+                    <h2 className="font-heading mt-4 text-3xl font-extrabold leading-[1.1] text-[#083224] md:text-5xl">
+                        Exklusive <span className="text-[#2AA34D]">Hausdienstleistungen</span> <br />
+                        nach Maß.
+                    </h2>
+                    <p className="mt-6 font-sans text-[1.05rem] leading-relaxed text-[#42514A] md:text-[1.2rem]">
+                        Entdecken Sie unsere maßgeschneiderten Lösungen für Ihr Objekt. Wir vereinen verschiedene Gewerke unter einem Dach für Ihren höchsten Komfort.
+                    </p>
+                </div>
             </div>
 
             {/* Sprungmarke / Wrapper für die ersten Dienstleistungen */}
