@@ -53,15 +53,19 @@ if (!smtpUser || !smtpPass) {
 }
 
 // Transporter-Konfiguration
+// Transporter-Konfiguration (Optimiert für IONOS & Timeout-Schutz)
 const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
-    secure: true, 
+    secure: smtpPort === 465, // WICHTIG: Port 465 = true, Port 587 = false!
     auth: {
         user: smtpUser,
         pass: smtpPass,
-        type: 'login' 
     },
+    // WICHTIG: Timeouts! Verhindert endloses "Ausstehend" im Frontend
+    connectionTimeout: 10000, // Bricht nach 10 Sek ab, wenn Server nicht erreichbar
+    greetingTimeout: 10000,
+    socketTimeout: 10000,
     tls: {
         rejectUnauthorized: false 
     }
