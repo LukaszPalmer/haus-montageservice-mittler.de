@@ -4,8 +4,8 @@ import { FiPhone, FiMail, FiMapPin, FiCheckCircle } from "react-icons/fi";
 import MobileFooter from "../MobileFooter.jsx";
 import Header from "../Header.jsx";
 
-const API_BASE_URL =
-    import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+// FESTE URL: Umgeht Probleme mit Netlify-Variablen
+const API_BASE_URL = "https://haus-montageservice-mittlerde-production.up.railway.app";
 
 function Kontakt() {
     useEffect(() => {
@@ -25,10 +25,10 @@ function Kontakt() {
         formData.append("type", "KONTAKTANFRAGE");
 
         try {
+            // Wir nutzen die feste URL und stellen sicher, dass der Pfad stimmt
             const res = await fetch(`${API_BASE_URL}/api/send-email`, {
                 method: "POST",
-                // Header 'Content-Type' weglassen! Browser setzt ihn automatisch inkl. Boundary für FormData
-                body: formData,
+                body: formData, // Browser setzt Content-Type automatisch
             });
 
             if (res.ok) {
@@ -39,16 +39,15 @@ function Kontakt() {
                 setStatus("error");
             }
         } catch (err) {
+            console.error("Fetch Fehler:", err);
             setStatus("error");
         } finally {
             setLoading(false);
         }
     };
 
-    const inputClasses =
-        "w-full bg-transparent border-b border-slate-300 py-4 text-sm text-[#083224] outline-none placeholder:text-slate-400 focus:border-[#2AA34D] transition-colors md:text-base";
-    const labelClasses =
-        "font-sans mb-1 block text-[10px] font-bold uppercase tracking-widest text-[#2AA34D]";
+    const inputClasses = "w-full bg-transparent border-b border-slate-300 py-4 text-sm text-[#083224] outline-none placeholder:text-slate-400 focus:border-[#2AA34D] transition-colors md:text-base";
+    const labelClasses = "font-sans mb-1 block text-[10px] font-bold uppercase tracking-widest text-[#2AA34D]";
 
     return (
         <section className="w-full bg-white">
@@ -56,49 +55,24 @@ function Kontakt() {
             <div className="mx-auto max-w-[1700px] px-6 py-16 md:px-12 lg:px-20 lg:py-24">
                 <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
                     <div className="lg:col-span-5">
-                        <span className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-[#2AA34D]">
-                            Kontakt & Anfrage
-                        </span>
+                        <span className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-[#2AA34D]">Kontakt & Anfrage</span>
                         <h1 className="font-heading mt-6 text-4xl font-extrabold leading-[1.1] text-[#083224] md:text-5xl lg:text-6xl">
                             Lassen Sie uns Ihr <br />
-                            <span className="text-[#2AA34D]">
-                                Projekt realisieren.
-                            </span>
+                            <span className="text-[#2AA34D]">Projekt realisieren.</span>
                         </h1>
-                        <p className="mt-8 font-sans text-lg leading-relaxed text-[#42514A]">
-                            Ob private Immobilie oder gewerbliches Objekt...
-                        </p>
+                        <p className="mt-8 font-sans text-lg leading-relaxed text-[#42514A]">Ob private Immobilie oder gewerbliches Objekt...</p>
                         <ul className="mt-10 space-y-6">
                             {[
-                                {
-                                    title: "Erstklassige Qualität",
-                                    desc: "Präzises Handwerk und hochwertige Materialien für Ihr Zuhause.",
-                                },
-                                {
-                                    title: "Termintreue",
-                                    desc: "Zuverlässige Planung und pünktliche Ausführung vor Ort.",
-                                },
-                                {
-                                    title: "Alles aus einer Hand",
-                                    desc: "Von der Beratung bis zur Montage – wir begleiten Ihr gesamtes Vorhaben.",
-                                },
-                                {
-                                    title: "Transparente Preise",
-                                    desc: "Faire Kalkulationen ohne versteckte Kosten für maximale Planungssicherheit.",
-                                },
+                                { title: "Erstklassige Qualität", desc: "Präzises Handwerk und hochwertige Materialien für Ihr Zuhause." },
+                                { title: "Termintreue", desc: "Zuverlässige Planung und pünktliche Ausführung vor Ort." },
+                                { title: "Alles aus einer Hand", desc: "Von der Beratung bis zur Montage – wir begleiten Ihr gesamtes Vorhaben." },
+                                { title: "Transparente Preise", desc: "Faire Kalkulationen ohne versteckte Kosten für maximale Planungssicherheit." },
                             ].map((item, idx) => (
                                 <li key={idx} className="flex gap-4">
-                                    <FiCheckCircle
-                                        className="mt-1 flex-shrink-0 text-[#2AA34D]"
-                                        size={24}
-                                    />
+                                    <FiCheckCircle className="mt-1 flex-shrink-0 text-[#2AA34D]" size={24} />
                                     <div>
-                                        <h4 className="font-sans font-bold text-[#083224]">
-                                            {item.title}
-                                        </h4>
-                                        <p className="text-sm text-[#42514A]">
-                                            {item.desc}
-                                        </p>
+                                        <h4 className="font-sans font-bold text-[#083224]">{item.title}</h4>
+                                        <p className="text-sm text-[#42514A]">{item.desc}</p>
                                     </div>
                                 </li>
                             ))}
@@ -106,108 +80,46 @@ function Kontakt() {
                     </div>
                     <div className="lg:col-span-7">
                         <div className="rounded-[4px] p-8 shadow-sm md:p-12 lg:p-16">
-                            <h3 className="font-heading mb-10 text-2xl font-bold uppercase tracking-tight text-[#083224]">
-                                Direkt-Anfrage
-                            </h3>
-                            <form
-                                className="space-y-10"
-                                onSubmit={handleSubmit}
-                            >
+                            <h3 className="font-heading mb-10 text-2xl font-bold uppercase tracking-tight text-[#083224]">Direkt-Anfrage</h3>
+                            <form className="space-y-10" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
                                     <div className="relative">
-                                        <label className={labelClasses}>
-                                            Name *
-                                        </label>
-                                        <input
-                                            name="name"
-                                            type="text"
-                                            placeholder="Name"
-                                            required
-                                            className={inputClasses}
-                                        />
+                                        <label className={labelClasses}>Name *</label>
+                                        <input name="name" type="text" placeholder="Name" required className={inputClasses} />
                                     </div>
                                     <div className="relative">
-                                        <label className={labelClasses}>
-                                            Telefon *
-                                        </label>
-                                        <input
-                                            name="phone"
-                                            type="tel"
-                                            placeholder="Telefon"
-                                            required
-                                            className={inputClasses}
-                                        />
+                                        <label className={labelClasses}>Telefon *</label>
+                                        <input name="phone" type="tel" placeholder="Telefon" required className={inputClasses} />
                                     </div>
                                     <div className="relative">
-                                        <label className={labelClasses}>
-                                            E-Mail *
-                                        </label>
-                                        <input
-                                            name="email"
-                                            type="email"
-                                            placeholder="E-Mail"
-                                            required
-                                            className={inputClasses}
-                                        />
+                                        <label className={labelClasses}>E-Mail *</label>
+                                        <input name="email" type="email" placeholder="E-Mail" required className={inputClasses} />
                                     </div>
                                     <div className="relative">
-                                        <label className={labelClasses}>
-                                            Betreff *
-                                        </label>
-                                        <select
-                                            name="subject"
-                                            required
-                                            className={
-                                                inputClasses +
-                                                " appearance-none cursor-pointer"
-                                            }
-                                        >
-                                            <option value="">
-                                                Grund der Anfrage
-                                            </option>
-                                            <option value="Montage">
-                                                Montage & Aufbau
-                                            </option>
-                                            <option value="Maler">
-                                                Malerarbeiten
-                                            </option>
+                                        <label className={labelClasses}>Betreff *</label>
+                                        <select name="subject" required className={inputClasses + " appearance-none cursor-pointer"}>
+                                            <option value="">Grund der Anfrage</option>
+                                            <option value="Montage">Montage & Aufbau</option>
+                                            <option value="Maler">Malerarbeiten</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div className="relative">
-                                    <label className={labelClasses}>
-                                        Ihre Nachricht
-                                    </label>
-                                    <textarea
-                                        name="message"
-                                        rows="2"
-                                        placeholder="Nachricht..."
-                                        className={
-                                            inputClasses + " resize-none"
-                                        }
-                                    />
+                                    <label className={labelClasses}>Ihre Nachricht</label>
+                                    <textarea name="message" rows="2" placeholder="Nachricht..." className={inputClasses + " resize-none"} />
                                 </div>
                                 <div className="space-y-4">
-                                    <button
-                                        type="submit"
-                                        disabled={loading}
-                                        className="w-full bg-[#083224] py-5 text-sm font-bold uppercase tracking-[0.25em] text-white transition hover:bg-[#0c4432] md:py-6 md:text-base"
-                                    >
-                                        {loading
-                                            ? "Wird gesendet..."
-                                            : "Anfrage jetzt absenden"}
+                                    <button type="submit" disabled={loading} className="w-full bg-[#083224] py-5 text-sm font-bold uppercase tracking-[0.25em] text-white transition hover:bg-[#0c4432] md:py-6 md:text-base">
+                                        {loading ? "Wird gesendet..." : "Anfrage jetzt absenden"}
                                     </button>
                                     {status === "success" && (
                                         <div className="flex items-center justify-center gap-2 rounded bg-green-50 p-4 text-sm font-bold text-green-700 border border-green-200 animate-fade-in">
-                                            <FiCheckCircle size={18} /> Vielen
-                                            Dank! Ihre Anfrage wurde erfolgreich
-                                            verschickt.
+                                            <FiCheckCircle size={18} /> Vielen Dank! Ihre Anfrage wurde erfolgreich verschickt.
                                         </div>
                                     )}
                                     {status === "error" && (
                                         <div className="rounded bg-red-50 p-4 text-sm font-bold text-red-700 border border-red-200">
-                                            Ein Fehler ist aufgetreten. Bitte
-                                            versuchen Sie es später erneut.
+                                            Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.
                                         </div>
                                     )}
                                 </div>
