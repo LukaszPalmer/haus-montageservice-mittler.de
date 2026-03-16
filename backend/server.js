@@ -49,7 +49,24 @@ const transporter = nodemailer.createTransport({
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
     },
+    connectionTimeout: 15000,
+    greetingTimeout: 15000,
+    socketTimeout: 20000,
+    tls: {
+        minVersion: "TLSv1.2",
+    },
 });
+
+const sendMailWithTimeout = (mailOptions, timeoutMs = 20000) =>
+    Promise.race([
+        transporter.sendMail(mailOptions),
+        new Promise((_, reject) =>
+            setTimeout(
+                () => reject(new Error("SMTP-Timeout nach 20 Sekunden")),
+                timeoutMs
+            )
+        ),
+    ]);
 
 const upload = multer({
     storage: multer.memoryStorage(),
@@ -110,7 +127,7 @@ app.post("/api/contact", upload.none(), async (req, res) => {
             });
         }
 
-        await transporter.sendMail({
+        await sendMailWithTimeout({
             from: `Website Kontakt <${process.env.SMTP_USER}>`,
             to: getMailTarget(),
             replyTo: email,
@@ -181,7 +198,7 @@ app.post(
                 });
             }
 
-            await transporter.sendMail({
+            await sendMailWithTimeout({
                 from: `Website Karriere <${process.env.SMTP_USER}>`,
                 to: getMailTarget(),
                 replyTo: email,
