@@ -13,8 +13,7 @@ import MobileFooter from "../MobileFooter.jsx";
 import BewerbungWorkFlow from "../KarriereComponents/BewerbungWorkflow.jsx";
 import SocialConnect from "../KarriereComponents/SocialConnect.jsx";
 
-// ERSETZE DIESEN LINK DURCH DEINEN FORMSPREE/WEB3FORMS LINK
-const FORM_ENDPOINT = "https://formspree.io/f/DEINE_FORM_ID_HIER";
+const FORM_ENDPOINT = `${import.meta.env.VITE_API_URL}/api/career`;
 
 function Karriere() {
     useEffect(() => {
@@ -33,7 +32,7 @@ function Karriere() {
 
         const form = e.currentTarget;
         const formData = new FormData(form);
-        formData.append("Anfrage-Typ", "KARRIERE"); // Hilft dir in der E-Mail
+        formData.append("Anfrage-Typ", "KARRIERE");
 
         try {
             const res = await fetch(FORM_ENDPOINT, {

@@ -4,8 +4,7 @@ import { FiCheckCircle } from "react-icons/fi";
 import MobileFooter from "../MobileFooter.jsx";
 import Header from "../Header.jsx"; // Falls benötigt, sonst entfernen
 
-// ERSETZE DIESEN LINK DURCH DEINEN FORMSPREE/WEB3FORMS LINK
-const FORM_ENDPOINT = "https://formspree.io/f/DEINE_FORM_ID_HIER";
+const FORM_ENDPOINT = `${import.meta.env.VITE_API_URL}/api/contact`;
 
 function Kontakt() {
     useEffect(() => {
@@ -22,7 +21,7 @@ function Kontakt() {
 
         const form = e.currentTarget;
         const formData = new FormData(form);
-        formData.append("Anfrage-Typ", "ALLGEMEINER KONTAKT"); // Hilft dir in der E-Mail
+        formData.append("Anfrage-Typ", "ALLGEMEINER KONTAKT");
 
         try {
             const res = await fetch(FORM_ENDPOINT, {
