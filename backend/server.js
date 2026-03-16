@@ -10,6 +10,7 @@ dotenv.config();
 const app = express();
 const upload = multer({ dest: "uploads/" });
 
+// Konfiguration der erlaubten Origins für CORS
 const allowedOrigins = [
     "http://localhost:5173",
     "https://haus-objectservice-mittler.netlify.app",
@@ -24,9 +25,11 @@ const allowedOrigins = [
 app.use(
     cors({
         origin: (origin, callback) => {
+            // Erlaubt Anfragen ohne Origin (wie Postman) oder von erlaubten Domains
             if (!origin || allowedOrigins.includes(origin)) {
                 return callback(null, true);
             }
+            console.error("CORS blockiert: ", origin);
             return callback(new Error("CORS blockiert diese Origin: " + origin));
         },
         methods: ["GET", "POST", "OPTIONS"],
@@ -36,37 +39,42 @@ app.use(
 
 app.use(express.json());
 
-const smtpHost = (process.env.IONOS_SMTP_HOST || "smtp.ionos.com").trim();
+// Umgebungsvariablen laden
+const smtpHost = (process.env.IONOS_SMTP_HOST || "smtp.ionos.de").trim();
 const smtpPort = Number((process.env.IONOS_SMTP_PORT || "465").trim());
-const smtpUser = (process.env.EMAIL_USER || process.env.IONOS_SMTP_USER || "").trim();
-const smtpPass = (process.env.EMAIL_PASS || process.env.IONOS_SMTP_PASS || "").trim();
-const mailReceiver = (process.env.EMAIL_RECEIVER || process.env.MAIL_TO || "").trim();
+const smtpUser = (process.env.EMAIL_USER || "").trim();
+const smtpPass = (process.env.EMAIL_PASS || "").trim();
+const mailReceiver = (process.env.EMAIL_RECEIVER || smtpUser).trim();
 
-console.log("SMTP HOST:", smtpHost);
-console.log("SMTP PORT:", smtpPort);
-console.log("SMTP USER:", JSON.stringify(smtpUser));
-console.log("SMTP PASS LENGTH:", smtpPass.length);
-
+// Transporter-Konfiguration (Optimiert für IONOS)
 const transporter = nodemailer.createTransport({
     host: smtpHost,
     port: smtpPort,
-    secure: true, // Port 465
+    secure: true, // Port 465 nutzt TLS
     auth: {
         user: smtpUser,
         pass: smtpPass,
-        type: 'login' // Erzwinge LOGIN statt PLAIN
+        type: 'login' // Wichtig für IONOS
     },
     tls: {
-        // IONOS braucht das manchmal, wenn die Verbindung von Railway kommt
-        rejectUnauthorized: false
+        rejectUnauthorized: false // Verhindert Probleme mit Railway-Zertifikaten
     }
 });
 
+// Verbindung beim Start prüfen
 transporter
     .verify()
     .then(() => console.log("SMTP-Verbindung erfolgreich."))
     .catch((err) => console.error("SMTP verify fehlgeschlagen:", err));
 
+// --- ROUTEN ---
+
+// NEU: Test-Route (Einfach im Browser die Railway-URL aufrufen)
+app.get("/", (req, res) => {
+    res.send("<h1>Backend läuft!</h1><p>Der E-Mail-Server ist bereit.</p>");
+});
+
+// Haupt-Route für den E-Mail Versand
 app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
     const uploadedFiles = req.files || [];
 
@@ -86,6 +94,7 @@ app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
         };
 
         await transporter.sendMail(mailOptions);
+        console.log("E-Mail erfolgreich gesendet an:", mailReceiver);
 
         return res.status(200).json({
             success: true,
@@ -98,11 +107,14 @@ app.post("/api/send-email", upload.array("attachments"), async (req, res) => {
             error: "Server-Fehler beim Senden.",
         });
     } finally {
+        // Dateien nach Versand löschen
         await Promise.all(
             uploadedFiles.map(async (file) => {
                 try {
                     await fs.unlink(file.path);
-                } catch {}
+                } catch (e) {
+                    console.error("Konnte Datei nicht löschen:", file.path);
+                }
             })
         );
     }
