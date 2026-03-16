@@ -15,6 +15,7 @@ function HeaderGrowth() {
             scrollTimeout.current = setTimeout(() => setIsScrolling(false), 150);
         };
 
+        
         window.addEventListener("scroll", handleScroll, { passive: true });
         return () => {
             window.removeEventListener("scroll", handleScroll);

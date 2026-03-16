@@ -11,6 +11,7 @@ function HeaderSearch() {
                     className="ml-3 w-[150px] bg-transparent font-sans text-sm text-[#083224] outline-none placeholder:text-slate-400 focus:w-[220px] transition-all duration-500 xl:text-base xl:focus:w-[280px]"
                 />
             </div>
+            
         </div>
     );
 }

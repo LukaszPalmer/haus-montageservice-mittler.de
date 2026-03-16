@@ -18,6 +18,7 @@ const MalerArbeitsablauf = () => {
             ),
         },
         {
+            
             number: "02",
             title: "Angebot",
             icon: <FiEdit3 className="text-3xl" />,

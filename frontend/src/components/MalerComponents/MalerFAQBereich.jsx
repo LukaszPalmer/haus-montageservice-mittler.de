@@ -19,6 +19,7 @@ const MalerFAQBereich = () => {
                     </span>
                     , sondern schützt Ihre Wände auch langfristig vor
                     Verschmutzungen und Feuchtigkeit.
+                    
                 </>
             ),
         },

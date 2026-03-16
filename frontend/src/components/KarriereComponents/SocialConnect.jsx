@@ -138,6 +138,7 @@ function SocialConnect() {
                             link="https://linkedin.com"
                             desc="Professionelle Netzwerke, Unternehmens-News und spannende Karriere-Möglichkeiten."
                         />
+                        
                         {/* 1. FACEBOOK KACHEL HINZUGEFÜGT */}
                         <SocialCard 
                             platform="Facebook"

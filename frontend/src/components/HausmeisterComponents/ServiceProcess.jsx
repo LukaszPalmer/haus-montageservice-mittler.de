@@ -15,6 +15,7 @@ const ServiceProcess = () => {
                 </>
             ),
         },
+        
         {
             number: "02",
             title: "Planung & Analyse",

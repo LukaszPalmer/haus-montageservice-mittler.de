@@ -20,6 +20,7 @@ const PutzFAQBereich = () => {
                     , die sowohl für Ihre Gesundheit als auch für die
                     Oberflächen absolut schonend sind.
                 </>
+                
             ),
         },
         {

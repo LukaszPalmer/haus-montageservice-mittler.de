@@ -1,5 +1,5 @@
 import React from "react";
-
+//a
 const GartenArbeitsablauf = () => {
     return (
         <div className="relative mx-auto w-full max-w-[100%] overflow-hidden px-6 py-20 md:px-12 md:py-24 lg:px-16 xl:max-w-[1700px] xl:px-20 xl:py-32 2xl:max-w-[1900px] min-[2200px]:max-w-[2200px]">

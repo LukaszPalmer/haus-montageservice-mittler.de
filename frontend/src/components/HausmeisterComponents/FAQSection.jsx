@@ -110,6 +110,7 @@ const FAQSection = () => {
                                         <div className="h-[1px] w-full bg-slate-200 mb-6" />
                                         <p className="font-sans text-[1.1rem] leading-relaxed text-slate-600">
                                             {f.a}
+                                        
                                         </p>
                                     </div>
                                 </div>
@@ -118,6 +119,7 @@ const FAQSection = () => {
                     ))}
                 </div>
             </div>
+
         </section>
     );
 };

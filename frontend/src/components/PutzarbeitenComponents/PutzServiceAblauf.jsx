@@ -18,6 +18,7 @@ const PutzServiceAblauf = () => {
                     Glasreinigung oder Grundreinigung.
                 </>
             ),
+            
         },
         {
             number: "02",

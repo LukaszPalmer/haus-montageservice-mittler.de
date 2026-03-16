@@ -104,6 +104,7 @@ const MalerFAQ = () => {
                             </div>
                         </div>
                     ))}
+                    
                 </div>
             </div>
         </section>

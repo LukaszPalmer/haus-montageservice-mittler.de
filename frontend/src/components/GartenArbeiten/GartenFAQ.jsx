@@ -40,6 +40,7 @@ const gartenServices = [
         icon: <Trees className="w-8 h-8 text-[#2AA34D]" />,
     },
 ];
+//a
 
 const GartenFAQ = () => {
     return (

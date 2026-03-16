@@ -13,6 +13,7 @@ function Kontakt() {
 
     const [loading, setLoading] = useState(false);
     const [status, setStatus] = useState(null);
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();

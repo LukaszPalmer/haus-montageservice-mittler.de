@@ -41,6 +41,7 @@ const MalerServiceAblauf = () => {
                         <span className="text-[#2AA34D]">
                             frischen Anstrich
                         </span>
+                        
                     </h2>
                     <div className="h-1 w-32 bg-[#2AA34D] mt-6"></div>
                 </div>
