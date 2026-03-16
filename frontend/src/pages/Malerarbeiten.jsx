@@ -6,6 +6,15 @@ import MobileQueryMalenBanner from "../media/MobileQueryMalenBanner.png";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
 function Malerarbeiten() {
+    // Funktion für weiches Scrollen zur ersten Dienstleistung
+    const scrollToLeistungen = (e) => {
+        e.preventDefault();
+        const element = document.getElementById("erste-dienstleistung");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <section className="w-full overflow-x-hidden bg-white">
             {/* --- MOBILE HERO (bis 767px) --- */}
@@ -24,7 +33,9 @@ function Malerarbeiten() {
                         </span>
                         <h1 className="font-heading mb-8 text-4xl font-extrabold leading-[1.1] text-white">
                             Moderne <br />
-                            <span className="text-[#2AA34D]">Malerarbeiten</span>
+                            <span className="text-[#2AA34D]">
+                                Malerarbeiten
+                            </span>
                         </h1>
                         <p className="mx-auto max-w-sm font-sans text-[1rem] leading-relaxed text-slate-200">
                             Wir verleihen Ihren Räumen neuen Glanz durch{" "}
@@ -35,7 +46,8 @@ function Malerarbeiten() {
                         </p>
                         <div className="mt-12 flex flex-col gap-4">
                             <a
-                                href="#leistungen"
+                                href="#erste-dienstleistung"
+                                onClick={scrollToLeistungen}
                                 className="inline-flex items-center justify-center bg-[#2AA34D] px-8 py-4 font-sans text-sm font-bold uppercase tracking-widest text-white shadow-lg"
                             >
                                 Leistungen <FiArrowDown className="ml-2" />
@@ -62,7 +74,8 @@ function Malerarbeiten() {
                                     Farbe, Renovierung & Pflege
                                 </span>
                                 <h1 className="font-heading mt-4 text-[4rem] font-extrabold leading-[1] tracking-[-0.03em] text-white">
-                                    Maler-<br />
+                                    Maler-
+                                    <br />
                                     <span className="text-[#2AA34D]">
                                         arbeiten
                                     </span>
@@ -72,11 +85,13 @@ function Malerarbeiten() {
                                     <span className="text-white">
                                         Anstrichen und Renovierungen
                                     </span>{" "}
-                                    für ein gepflegtes Erscheinungsbild Ihrer Immobilie.
+                                    für ein gepflegtes Erscheinungsbild Ihrer
+                                    Immobilie.
                                 </p>
                                 <div className="mt-10 flex gap-5">
                                     <a
-                                        href="#leistungen"
+                                        href="#erste-dienstleistung"
+                                        onClick={scrollToLeistungen}
                                         className="bg-[#2AA34D] px-8 py-4 text-[1rem] font-bold uppercase tracking-wider text-white transition-all hover:bg-[#238A40]"
                                     >
                                         Mehr erfahren
@@ -111,7 +126,8 @@ function Malerarbeiten() {
                                     Premium Malerservice
                                 </span>
                                 <h1 className="font-heading mt-6 text-[5.5rem] font-extrabold leading-[0.9] tracking-[-0.04em] text-white xl:text-[6.5rem] 2xl:text-[7.2rem] min-[2200px]:text-[8rem]">
-                                    Maler-<br />
+                                    Maler-
+                                    <br />
                                     <span className="text-[#2AA34D]">
                                         arbeiten
                                     </span>
@@ -129,7 +145,8 @@ function Malerarbeiten() {
                                 </p>
                                 <div className="mt-12 flex items-center gap-6">
                                     <a
-                                        href="#leistungen"
+                                        href="#erste-dienstleistung"
+                                        onClick={scrollToLeistungen}
                                         className="group flex items-center gap-3 bg-[#2AA34D] px-10 py-5 text-[1.1rem] font-bold uppercase tracking-widest text-white shadow-2xl transition-all hover:bg-[#238A40] hover:shadow-[#2AA34D]/30"
                                     >
                                         Leistungen entdecken <FiArrowDown />
@@ -148,10 +165,7 @@ function Malerarbeiten() {
                 </div>
 
                 {/* --- DESKTOP INTRO TEXT --- */}
-                <div
-                    id="leistungen"
-                    className="mx-auto w-full max-w-[1700px] px-16 py-24 xl:px-20 2xl:max-w-[1900px] 2xl:py-32 min-[2200px]:max-w-[2200px]"
-                >
+                <div className="mx-auto w-full max-w-[1700px] px-16 py-24 xl:px-20 2xl:max-w-[1900px] 2xl:py-32 min-[2200px]:max-w-[2200px]">
                     <div className="relative z-10 max-w-[1100px] xl:max-w-[1300px]">
                         <span className="font-sans text-[1rem] font-bold uppercase tracking-[0.3em] text-[#2AA34D]">
                             Sauberkeit & Ästhetik
@@ -161,8 +175,7 @@ function Malerarbeiten() {
                             <span className="text-[#2AA34D]">
                                 Malerarbeiten
                             </span>{" "}
-                            für
-                            ein schönes Zuhause.
+                            für ein schönes Zuhause.
                         </h2>
                         <p className="mt-10 font-sans text-[1.3rem] leading-relaxed text-[#42514A] xl:text-[1.5rem] 2xl:text-[1.7rem]">
                             Wir übernehmen sämtliche{" "}
@@ -174,7 +187,8 @@ function Malerarbeiten() {
                                 Renovierungstätigkeiten
                             </span>{" "}
                             mit einem klaren Fokus auf Präzision und Sauberkeit.
-                            Ob Neuanstrich oder kleine Ausbesserung – unser Team garantiert eine{" "}
+                            Ob Neuanstrich oder kleine Ausbesserung – unser Team
+                            garantiert eine{" "}
                             <span className="font-semibold text-[#2AA34D]">
                                 makellose Durchführung
                             </span>{" "}
@@ -203,9 +217,13 @@ function Malerarbeiten() {
                     <span className="text-[#2AA34D] font-medium">
                         Raumgestaltung
                     </span>
-                    : Wir sorgen für frische Farben und saubere Ergebnisse in Ihren Innen- und Außenbereichen.
+                    : Wir sorgen für frische Farben und saubere Ergebnisse in
+                    Ihren Innen- und Außenbereichen.
                 </p>
             </div>
+
+            {/* Sprungmarke für alle Ansichten */}
+            <div id="erste-dienstleistung"></div>
 
             <MalerLeistungenGrid />
             <Footer />

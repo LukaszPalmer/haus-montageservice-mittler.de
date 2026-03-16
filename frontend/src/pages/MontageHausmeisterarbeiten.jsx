@@ -4,6 +4,15 @@ import MontageLeistungenGrid from "../components/MontageLeistungenGrid.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
 function MontageHausmeisterarbeiten() {
+    // Funktion für weiches Scrollen zur ersten Dienstleistung
+    const scrollToLeistungen = (e) => {
+        e.preventDefault();
+        const element = document.getElementById("erste-dienstleistung");
+        if (element) {
+            element.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
     return (
         <section className="w-full overflow-x-hidden bg-white">
             {/* --- MOBILE HERO (bis 767px) --- */}
@@ -34,7 +43,8 @@ function MontageHausmeisterarbeiten() {
                         </p>
                         <div className="mt-12 flex flex-col gap-4">
                             <a
-                                href="#leistungen"
+                                href="#erste-dienstleistung"
+                                onClick={scrollToLeistungen}
                                 className="inline-flex items-center justify-center bg-[#2AA34D] px-8 py-4 font-sans text-sm font-bold uppercase tracking-widest text-white shadow-lg"
                             >
                                 Leistungen <FiArrowDown className="ml-2" />
@@ -76,7 +86,8 @@ function MontageHausmeisterarbeiten() {
                                 </p>
                                 <div className="mt-10 flex gap-5">
                                     <a
-                                        href="#leistungen"
+                                        href="#erste-dienstleistung"
+                                        onClick={scrollToLeistungen}
                                         className="bg-[#2AA34D] px-8 py-4 text-[1rem] font-bold uppercase tracking-wider text-white transition-all hover:bg-[#238A40]"
                                     >
                                         Mehr erfahren
@@ -130,7 +141,8 @@ function MontageHausmeisterarbeiten() {
                                 </p>
                                 <div className="mt-12 flex items-center gap-6">
                                     <a
-                                        href="#leistungen"
+                                        href="#erste-dienstleistung"
+                                        onClick={scrollToLeistungen}
                                         className="group flex items-center gap-3 bg-[#2AA34D] px-10 py-5 text-[1.1rem] font-bold uppercase tracking-widest text-white shadow-2xl transition-all hover:bg-[#238A40] hover:shadow-[#2AA34D]/30"
                                     >
                                         Leistungen entdecken <FiArrowDown />
@@ -149,10 +161,7 @@ function MontageHausmeisterarbeiten() {
                 </div>
 
                 {/* --- DESKTOP INTRO TEXT --- */}
-                <div
-                    id="leistungen"
-                    className="mx-auto w-full max-w-[1700px] px-16 py-24 xl:px-20 2xl:max-w-[1900px] 2xl:py-32 min-[2200px]:max-w-[2200px]"
-                >
+                <div className="mx-auto w-full max-w-[1700px] px-16 py-24 xl:px-20 2xl:max-w-[1900px] 2xl:py-32 min-[2200px]:max-w-[2200px]">
                     <div className="relative z-10 max-w-[1100px] xl:max-w-[1300px]">
                         <span className="font-sans text-[1rem] font-bold uppercase tracking-[0.3em] text-[#2AA34D]">
                             Vielseitigkeit & Präzision
@@ -209,6 +218,9 @@ function MontageHausmeisterarbeiten() {
                     Aufgaben rund um Ihr Haus.
                 </p>
             </div>
+
+            {/* Sprungmarke für alle Ansichten */}
+            <div id="erste-dienstleistung"></div>
 
             <MontageLeistungenGrid />
             <Footer />
