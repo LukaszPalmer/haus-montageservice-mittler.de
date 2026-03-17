@@ -1,6 +1,6 @@
 import React from "react";
 import malerBanner_XL_Query_Innenanstrich from "../media/MalerBanner_XL_Querys.png";
-import maleBanner_XL_Query_Wandgestalltung from '../media/MalerBanner_Wandgestalltung_XL_Query.png'
+import maleBanner_XL_Query_Wandgestalltung from '../media/Untitled (1071 x 768 px).avif'
 import malenPlaceholder3 from "../media/MalerBannerAußenanstriche_XL_Query.png"; 
 import malenBanner_XL_Query_Ausbesserung from "../media/Malen_Banner_XL_Querys_Ausbesserung.png";
 import malenBanner_Deckenanstrich_XL_Query from "../media/Maler_Banner_Deckenanstrich_XL_Query.png";
