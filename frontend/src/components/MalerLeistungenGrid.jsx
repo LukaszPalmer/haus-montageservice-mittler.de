@@ -18,6 +18,10 @@ import DesktopQuery_Avif from "../media/MalerBilder_AVIF/Desktop_Query_Wandgesta
 import LargeDesktopQuery_Avif from "../media/MalerBilder_AVIF/Large_DesktopQuery_Wandgestalltung.avif";
 import UltraLargeMediaQuery_Avif from "../media/MalerBilder_AVIF/4kMedia_Query_Wandgestalltung.avif";
 
+
+// Neuer Import für Außenfassade 4k Query Quadratformat
+import New_Quadratformat_4k_Mediaquery_Außenfassade from '../media/MalerBilder_AVIF/New_4k_Media_Query_Außenfassade (1).avif';
+
 // meine neuen Importe
 import AllgeminemalerHilfe from "../media/MalerBilder_AVIF/Allgemeine_Malerhilfe.avif";
 import Denkenansctrich from "../media/MalerBilder_AVIF/Deckenanstrich.avif";
@@ -45,7 +49,9 @@ function MalerLeistungenGrid() {
                     </span>
                     . Unser Fokus liegt auf langlebigen Oberflächen und einer
                     fachgerechten Untergrundvorbehandlung, damit Ihre Immobilie
-                    langfristig gepflegt, modern und einladend wirkt.
+                    langfristig gepflegt, modern und einladend wirkt. Wir garantieren Ihnen eine 
+                    <span className="font-semibold text-[#2AA34D]"> streifenfreie Ausführung </span> 
+                    und eine saubere Baustelle nach jedem Arbeitstag.
                 </>
             ),
             imageComponent: (
@@ -84,8 +90,9 @@ function MalerLeistungenGrid() {
                 <>
                     Individuelle Unterstützung bei der kreativen Farbberatung
                     und der präzisen handwerklichen Umsetzung Ihrer Wandflächen.
-                    Wir setzen Akzente durch moderne Maltechniken und
-                    hochwertige Materialien.
+                    Wir setzen Akzente durch <span className="font-semibold text-[#2AA34D]">moderne Maltechniken</span> und
+                    hochwertige Materialien. Von dekorativen Lasuren bis hin zu exklusiven 
+                    <span className="font-semibold text-[#2AA34D]"> Akzentwänden</span> – wir verwandeln Ihre Räume in echte Unikate mit Charakter.
                 </>
             ),
             imageComponent: (
@@ -142,13 +149,14 @@ function MalerLeistungenGrid() {
             text: (
                 <>
                     Professionelle Fassadenanstriche dienen nicht nur der
-                    Verschönerung, sondern primär dem Schutz Ihrer Immobilie vor
-                    Witterung, Algenbefall und UV-Strahlung.
+                    Verschönerung, sondern primär dem <span className="font-semibold text-[#2AA34D]">Schutz Ihrer Immobilie</span> vor
+                    Witterung, Algenbefall und UV-Strahlung. Wir verwenden ausschließlich 
+                    <span className="font-semibold text-[#2AA34D]"> hochwertige Fassadenfarben</span>, die atmungsaktiv sind und den Wert Ihres Gebäudes nachhaltig steigern.
                 </>
             ),
             imageComponent: (
                 <picture className="block h-full w-full">
-                    <source media="(min-width: 1921px)" srcSet={Außenfassade} />
+                    <source media="(min-width: 1921px)" srcSet={New_Quadratformat_4k_Mediaquery_Außenfassade} />
                     <source media="(min-width: 1441px)" srcSet={Außenfassade} />
                     <source media="(min-width: 1025px)" srcSet={Außenfassade} />
                     <source media="(min-width: 821px)" srcSet={Außenfassade} />
@@ -175,8 +183,9 @@ function MalerLeistungenGrid() {
             text: (
                 <>
                     Kleine Mängel beeinträchtigten oft das Gesamtbild – wir
-                    bieten gezielte Korrekturen und fachgerechte
-                    Spachtelarbeiten an beanspruchten Wänden und Oberflächen.
+                    bieten gezielte Korrekturen und <span className="font-semibold text-[#2AA34D]">fachgerechte Spachtelarbeiten</span> an beanspruchten Wänden. 
+                    Ob Risse, Löcher oder Abnutzungen: Wir sorgen für eine 
+                    <span className="font-semibold text-[#2AA34D]"> glatte Oberflächenstruktur</span>, die bereit für den perfekten Neuanstrich ist.
                 </>
             ),
             image: malenBanner_XL_Query_Ausbesserung,
@@ -192,8 +201,9 @@ function MalerLeistungenGrid() {
             text: (
                 <>
                     Schwer zugängliche Deckenflächen und hohe Räume streichen
-                    wir fachgerecht, gleichmäßig und absolut streifenfrei für
-                    ein helles, gepflegtes Raumgefühl.
+                    wir fachgerecht, gleichmäßig und absolut <span className="font-semibold text-[#2AA34D]">streifenfrei</span> für
+                    ein helles, gepflegtes Raumgefühl. Mit speziellen Rolltechniken und 
+                    <span className="font-semibold text-[#2AA34D]"> hochwertigen Deckenfarben</span> vermeiden wir unschöne Schattenbildung und Ansätze.
                 </>
             ),
             imageComponent: (
@@ -243,8 +253,9 @@ function MalerLeistungenGrid() {
             text: (
                 <>
                     Flexible Unterstützung bei aufwendigen Abklebearbeiten und
-                    dem Schutz von Bodenbelägen und Möbeln während Ihrer
-                    Renovierungsprojekte.
+                    dem <span className="font-semibold text-[#2AA34D]">Schutz von Bodenbelägen</span> und Möbeln während Ihrer
+                    Renovierungsprojekte. Wir übernehmen die 
+                    <span className="font-semibold text-[#2AA34D]"> professionelle Vorbereitung</span>, damit Sie sich ganz auf die Gestaltung Ihres Zuhauses konzentrieren können.
                 </>
             ),
             imageComponent: (
