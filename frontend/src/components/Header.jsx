@@ -15,7 +15,6 @@ import LogoMittlerLaptopQuery from "../media/laptopQuery.png";
 import HeaderGrowth from "./HeaderComponents/HeaderGrowth.jsx";
 import New_PNG_Logo_Mobile from "../media/New_PNG_Logo_Mobile.png";
 
-// DEFINITION AUSSERHALB DER HEADER-FUNKTION (BEHEBT DEN VSCODE FEHLER)
 const SocialIcons = ({ className }) => (
     <div className={`flex items-center gap-3 ${className}`}>
         {[
@@ -40,6 +39,7 @@ function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const [isVisible, setIsVisible] = useState(true);
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
     const scrollTimeout = useRef(null);
 
     useEffect(() => {
@@ -100,11 +100,12 @@ function Header() {
             <HeaderGrowth />
 
             <div className="relative mx-auto w-full max-w-[1700px] px-5 py-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:max-w-[1900px] 2xl:px-20 min-[2200px]:max-w-[2200px] min-[2200px]:px-24 min-[2200px]:py-6">
-                <div className="flex items-center justify-between gap-8">
+                
+                <div className="relative z-50 flex items-center justify-between gap-8">
                     <NavLink
                         to="/"
                         onClick={closeMenu}
-                        className="relative z-10 shrink-0 transition-transform duration-500 hover:scale-[1.02]"
+                        className={`relative z-10 shrink-0 transition-transform duration-500 hover:scale-[1.02] ${isSearchOpen ? "hidden lg:block" : "block"}`}
                     >
                         <img
                             src={New_PNG_Logo_Mobile}
@@ -125,22 +126,23 @@ function Header() {
 
                     {/* Desktop Navigation & Actions */}
                     <div className="hidden flex-1 items-center justify-between md:flex">
-                        <div className="relative z-10 pl-4 lg:pl-10 xl:pl-20">
-                            <HeaderSearch />
+                        
+                        <div className={`relative z-50 transition-all duration-300 ${isSearchOpen ? "w-full lg:w-auto lg:pl-10 xl:pl-20" : "pl-4 lg:pl-10 xl:pl-20"}`}>
+                            <HeaderSearch onSearchStateChange={setIsSearchOpen} />
                         </div>
 
-                        <div className="relative z-10 flex items-center gap-6 lg:gap-8 xl:gap-10">
-                            {/* Social Icons für Tablet (sichtbar wenn md aber nicht lg) */}
-                            <SocialIcons className="hidden md:flex lg:hidden mr-4" />
+                        <div className={`relative z-10 flex items-center gap-6 lg:gap-8 xl:gap-10 ${isSearchOpen ? "hidden lg:flex" : "flex"}`}>
+                            <SocialIcons className="hidden md:flex lg:hidden mr-4 transition-all" />
 
+                            {/* OPTIMIERUNG: Telefon oben erst ab 2xl wieder sichtbar (verborgen auf lg und xl) */}
                             <a
                                 href="tel:015753137765"
-                                className="group flex items-center gap-3 font-sans text-[0.95rem] font-bold text-[#083224] transition-colors hover:text-[#2AA34D] lg:text-[1.05rem] xl:text-[1.15rem]"
+                                className="group flex lg:hidden 2xl:flex items-center gap-3 font-sans text-[0.95rem] font-bold text-[#083224] transition-colors hover:text-[#2AA34D] 2xl:text-[1.15rem]"
                             >
                                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2AA34D]/[0.05] text-[#2AA34D] transition-all group-hover:bg-[#2AA34D] group-hover:text-white">
                                     <FiPhone size={18} />
                                 </div>
-                                <span className="hidden lg:inline">
+                                <span className="hidden 2xl:inline">
                                     01575 3137765
                                 </span>
                             </a>
@@ -164,50 +166,73 @@ function Header() {
                     </div>
 
                     {/* Mobile Controls */}
-                    <div className="flex items-center gap-5 md:hidden">
-                        <a
-                            href="tel:015753137765"
-                            className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2AA34D]/[0.08] text-[#2AA34D] transition-all"
-                        >
-                            <FiPhone size={20} />
-                        </a>
-                        <button
-                            onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="text-[#083224] relative z-[60] flex h-10 w-10 items-center justify-end"
-                        >
-                            {isMenuOpen ? (
-                                <FiX size={28} />
-                            ) : (
-                                <FiMenu size={28} />
-                            )}
-                        </button>
+                    <div className={`flex items-center gap-3 sm:gap-5 md:hidden transition-all duration-300 ${isSearchOpen ? "w-full" : ""}`}>
+                        <div className={`${isSearchOpen ? "w-full" : ""}`}>
+                            <HeaderSearch onSearchStateChange={setIsSearchOpen} />
+                        </div>
+
+                        {!isSearchOpen && (
+                            <>
+                                <a
+                                    href="tel:015753137765"
+                                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#2AA34D]/[0.08] text-[#2AA34D] transition-all"
+                                >
+                                    <FiPhone size={20} />
+                                </a>
+                                <button
+                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                    className="text-[#083224] relative z-[60] flex h-10 w-10 shrink-0 items-center justify-end"
+                                >
+                                    {isMenuOpen ? (
+                                        <FiX size={28} />
+                                    ) : (
+                                        <FiMenu size={28} />
+                                    )}
+                                </button>
+                            </>
+                        )}
                     </div>
                 </div>
 
                 {/* Sub-Navigation (Desktop) */}
                 <nav className="relative z-10 mt-6 hidden border-t border-[#F0F4F1] pt-6 md:block">
-                    <ul className="flex items-center justify-between lg:justify-start lg:gap-12 xl:gap-16">
-                        {[
-                            { name: "Startseite", path: "/" },
-                            {
-                                name: "Montage & Hausmeister",
-                                path: "/montage-hausmeisterarbeiten",
-                            },
-                            { name: "Malerarbeiten", path: "/malerarbeiten" },
-                            { name: "Gartenarbeiten", path: "/gartenarbeiten" },
-                            { name: "Putzarbeiten", path: "/putzarbeiten" },
-                        ].map((item) => (
-                            <li key={item.path}>
-                                <NavLink
-                                    to={item.path}
-                                    className={navLinkClass}
-                                >
-                                    {item.name}
-                                    <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#2AA34D] transition-all duration-300 group-hover:w-full" />
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="flex items-center justify-between w-full">
+                        <ul className="flex flex-1 items-center justify-between lg:justify-start lg:gap-12 xl:gap-16">
+                            {[
+                                { name: "Startseite", path: "/" },
+                                {
+                                    name: "Montage & Hausmeister",
+                                    path: "/montage-hausmeisterarbeiten",
+                                },
+                                { name: "Malerarbeiten", path: "/malerarbeiten" },
+                                { name: "Gartenarbeiten", path: "/gartenarbeiten" },
+                                { name: "Putzarbeiten", path: "/putzarbeiten" },
+                            ].map((item) => (
+                                <li key={item.path}>
+                                    <NavLink
+                                        to={item.path}
+                                        className={navLinkClass}
+                                    >
+                                        {item.name}
+                                        <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#2AA34D] transition-all duration-300 group-hover:w-full" />
+                                    </NavLink>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {/* OPTIMIERUNG: Telefonnummer taucht hier nun bei lg und xl (bis 1535px) auf. Leichter rechter Abstand mit mr-2 xl:mr-6 */}
+                        <a
+                            href="tel:015753137765"
+                            className="group hidden lg:flex 2xl:hidden items-center gap-3 font-sans text-[1.05rem] font-bold text-[#083224] transition-colors hover:text-[#2AA34D] shrink-0 ml-8 mr-2 xl:mr-6"
+                        >
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2AA34D]/[0.05] text-[#2AA34D] transition-all group-hover:bg-[#2AA34D] group-hover:text-white">
+                                <FiPhone size={18} />
+                            </div>
+                            <span>
+                                01575 3137765
+                            </span>
+                        </a>
+                    </div>
                 </nav>
 
                 {/* Mobile Menu Overlay */}
