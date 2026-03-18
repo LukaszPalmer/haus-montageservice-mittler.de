@@ -1,9 +1,12 @@
-import Obekt_Reinigung from "../media/Putzen_AVIF/Objekt_Reinigung.avif"; // setze AVIF here 
+import React from "react";
+import Obekt_Reinigung from "../media/Putzen_AVIF/Objekt_Reinigung.avif"; 
 import Treppenhausreinigung from "../media/Putzen_AVIF/Treppenhausreinigung.avif";
 import Allgemeine_Putzdienste from "../media/Putzen_AVIF/Allgemeine_Putzdienste.avif";
 import Küchen_Oberflächenreinigung from "../media/Putzen_AVIF/Küchen_Oberflächenreinigung.avif";
 import Fensternahe_Reinigung from "../media/Putzen_AVIF/Fensternahe_Reinigung.avif";
 import Flexible_Reinigungshilfe from "../media/Putzen_AVIF/Flexible_Reinigungshilfe.avif";
+import Tablet_Query_Flexible_Reinigungshilfe from '../media/Putzen_AVIF/Tablet_Query_Flexible_Reinigungshilfe_QuadratFormat.avif';
+
 
 import PutzServiceAblauf from "./PutzarbeitenComponents/PutzServiceAblauf";
 import PutzFAQBereich from "./PutzarbeitenComponents/PutzFAQBereich";
@@ -27,9 +30,10 @@ function PutzLeistungenGrid() {
             ),
             image: Obekt_Reinigung,
             link: "/kontakt",
-            wrapper: "xl:col-span-2",
+            // Auf Tablet und Laptop (md bis xl) nur 1 Spalte breit, damit es neben Treppenhausreinigung passt
+            wrapper: "md:col-span-1 xl:col-span-2",
             imageHeight:
-                "h-64 md:h-72 lg:h-[380px] xl:h-[460px] 2xl:h-[520px] min-[2200px]:h-[580px]",
+                "h-64 md:h-[300px] lg:h-[350px] xl:h-[460px] 2xl:h-[520px] min-[2200px]:h-[580px]",
             titleSize:
                 "text-[1.55rem] md:text-[1.9rem] lg:text-[2.2rem] xl:text-[2.6rem] 2xl:text-[2.9rem] min-[2200px]:text-[3.2rem]",
         },
@@ -50,9 +54,9 @@ function PutzLeistungenGrid() {
             ),
             image: Treppenhausreinigung,
             link: "/kontakt",
-            wrapper: "xl:col-span-1",
+            wrapper: "md:col-span-1 xl:col-span-1",
             imageHeight:
-                "h-56 md:h-60 lg:h-[300px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
+                "h-64 md:h-[300px] lg:h-[350px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
             titleSize:
                 "text-[1.3rem] md:text-[1.5rem] lg:text-[1.78rem] xl:text-[2.05rem] 2xl:text-[2.3rem] min-[2200px]:text-[2.5rem]",
         },
@@ -73,9 +77,9 @@ function PutzLeistungenGrid() {
             ),
             image: Allgemeine_Putzdienste,
             link: "/kontakt",
-            wrapper: "xl:col-span-1",
+            wrapper: "md:col-span-1 xl:col-span-1",
             imageHeight:
-                "h-56 md:h-60 lg:h-[300px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
+                "h-64 md:h-[300px] lg:h-[350px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
             titleSize:
                 "text-[1.3rem] md:text-[1.5rem] lg:text-[1.78rem] xl:text-[2.05rem] 2xl:text-[2.3rem] min-[2200px]:text-[2.5rem]",
         },
@@ -89,16 +93,17 @@ function PutzLeistungenGrid() {
                     </span>{" "}
                     und den Einsatz spezieller, materialschonender Reinigungsmittel bleiben Ihre Flächen langfristig{" "}
                     <span className="font-semibold text-[#2AA34D]">
-                        gepflegt und ordentlich
+                        gepflegted und ordentlich
                     </span>
                     . Ideal für Privathaushalte, Büroküchen und gewerbliche Einrichtungen mit hohen Sauberkeitsansprüchen.
                 </>
             ),
             image: Küchen_Oberflächenreinigung,
             link: "/kontakt",
-            wrapper: "xl:col-span-2",
+            // Hier ebenfalls auf md/lg auf 1 Spalte reduziert für Symmetrie
+            wrapper: "md:col-span-1 xl:col-span-2",
             imageHeight:
-                "h-56 md:h-64 lg:h-[300px] xl:h-[360px] 2xl:h-[410px] min-[2200px]:h-[450px]",
+                "h-64 md:h-[300px] lg:h-[350px] xl:h-[360px] 2xl:h-[410px] min-[2200px]:h-[450px]",
             titleSize:
                 "text-[1.3rem] md:text-[1.55rem] lg:text-[1.86rem] xl:text-[2.15rem] 2xl:text-[2.4rem] min-[2200px]:text-[2.65rem]",
         },
@@ -121,7 +126,7 @@ function PutzLeistungenGrid() {
             link: "/kontakt",
             wrapper: "xl:col-span-1",
             imageHeight:
-                "h-56 md:h-64 lg:h-[300px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
+                "h-64 md:h-[300px] lg:h-[350px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
             titleSize:
                 "text-[1.3rem] md:text-[1.55rem] lg:text-[1.86rem] xl:text-[2.08rem] 2xl:text-[2.3rem] min-[2200px]:text-[2.5rem]",
         },
@@ -141,10 +146,11 @@ function PutzLeistungenGrid() {
                 </>
             ),
             image: Flexible_Reinigungshilfe,
+            tabletImage: Tablet_Query_Flexible_Reinigungshilfe,
             link: "/kontakt",
             wrapper: "xl:col-span-1",
             imageHeight:
-                "h-56 md:h-64 lg:h-[300px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
+                "h-64 md:h-[300px] lg:h-[350px] xl:h-[340px] 2xl:h-[390px] min-[2200px]:h-[430px]",
             titleSize:
                 "text-[1.3rem] md:text-[1.55rem] lg:text-[1.86rem] xl:text-[2.08rem] 2xl:text-[2.3rem] min-[2200px]:text-[2.5rem]",
         },
@@ -178,11 +184,25 @@ function PutzLeistungenGrid() {
                             <div
                                 className={`relative overflow-hidden ${item.imageHeight}`}
                             >
-                                <img
-                                    src={item.image}
-                                    alt={item.title}
-                                    className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
-                                />
+                                {item.tabletImage ? (
+                                    <picture>
+                                        <source
+                                            media="(min-width: 768px) and (max-width: 1023px)"
+                                            srcSet={item.tabletImage}
+                                        />
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                                        />
+                                    </picture>
+                                ) : (
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
+                                    />
+                                )}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                             </div>
 

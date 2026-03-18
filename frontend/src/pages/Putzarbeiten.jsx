@@ -17,7 +17,8 @@ function Putzarbeiten() {
     return (
         <section className="w-full overflow-x-hidden bg-white">
             {/* --- MOBILE HERO (bis 767px) --- */}
-            <div className="relative h-[85vh] overflow-hidden md:hidden">
+            {/* Optimiert: h-[100vh] ab 425px für Mobile L Query */}
+            <div className="relative h-[85vh] min-[425px]:h-[100vh] overflow-hidden md:hidden">
                 <img
                     src={Putzen_Banner}
                     alt="Professionelle Putzarbeiten von Haus & Montageservice Mittler"
@@ -56,8 +57,9 @@ function Putzarbeiten() {
             </div>
 
             {/* --- TABLET HERO (768px - 1023px) --- */}
+            {/* Optimiert: h-[100vh] für die Tablet Query */}
             <div className="hidden md:block lg:hidden">
-                <div className="relative h-[70vh] overflow-hidden">
+                <div className="relative h-[100vh] overflow-hidden">
                     <img
                         src={Putzen_Banner}
                         alt="Putzarbeiten und Reinigungsservice"
@@ -175,8 +177,7 @@ function Putzarbeiten() {
                             <span className="text-[#2AA34D]">
                                 Reinigungsarbeiten
                             </span>{" "}
-                            für <br />
-                            ein makelloses Umfeld.
+                            für ein makelloses Umfeld.
                         </h2>
                         <p className="mt-10 font-sans text-[1.3rem] leading-relaxed text-[#42514A] xl:text-[1.5rem] 2xl:text-[1.7rem]">
                             Wir übernehmen sämtliche Putzarbeiten mit einem

@@ -10,15 +10,13 @@ const PutzServiceAblauf = () => {
             icon: <FiSearch className="text-3xl" />,
             text: (
                 <>
-                    Wir besprechen den{" "}
+                    In einem Erstgespräch analysieren wir Ihren individuellen{" "}
                     <span className="text-[#2AA34D] font-semibold">
-                        Reinigungsbedarf
+                        Reinigungsbedarf in Düsseldorf
                     </span>{" "}
-                    für Ihre Räumlichkeiten – ob Unterhaltsreinigung,
-                    Glasreinigung oder Grundreinigung.
+                    – von der klassischen Unterhaltsreinigung über Glasreinigung bis hin zur intensiven Bauendreinigung für gewerbliche und private Objekte.
                 </>
             ),
-            
         },
         {
             number: "02",
@@ -26,12 +24,11 @@ const PutzServiceAblauf = () => {
             icon: <FiEdit3 className="text-3xl" />,
             text: (
                 <>
-                    Sie erhalten ein{" "}
+                    Basierend auf der Analyse erstellen wir ein{" "}
                     <span className="text-[#2AA34D] font-semibold">
-                        transparentes Angebot
+                        maßgeschneidertes Reinigungskonzept
                     </span>{" "}
-                    mit einem detaillierten Leistungsverzeichnis für Ihre
-                    gewünschten Intervalle.
+                    mit transparentem Leistungsverzeichnis. So erhalten Sie volle Kostenkontrolle für Ihren Reinigungsdienst in der Region.
                 </>
             ),
         },
@@ -41,12 +38,11 @@ const PutzServiceAblauf = () => {
             icon: <FiCalendar className="text-3xl" />,
             text: (
                 <>
-                    Wir legen{" "}
+                    Wir koordinieren{" "}
                     <span className="text-[#2AA34D] font-semibold">
-                        feste Zeiten
+                        flexible Reinigungsintervalle
                     </span>{" "}
-                    für die Reinigung fest, die optimal in Ihren Betriebsablauf
-                    oder Ihren Alltag in Düsseldorf passen.
+                    nach Ihren Wünschen. Unser Team integriert sich nahtlos in Ihren Alltag oder Betriebsablauf in Düsseldorf und Umgebung – pünktlich und diskret.
                 </>
             ),
         },
@@ -56,12 +52,10 @@ const PutzServiceAblauf = () => {
             icon: <HiOutlineSparkles className="text-3xl" />,
             text: (
                 <>
-                    Unser Team reinigt{" "}
+                    Mit modernem Equipment sorgt unser Team für{" Schliff & "}
                     <span className="text-[#2AA34D] font-semibold">
-                        gründlich und materialschonend
-                    </span>{" "}
-                    – für ein hygienisches und gepflegtes Ambiente in Ihrem
-                    Objekt.
+                        professionelle Sauberkeit
+                    </span>. Wir garantieren Werterhalt und ein hygienisches Ambiente durch fachgerechte Gebäudereinigung auf höchstem Niveau.
                 </>
             ),
         },
@@ -81,8 +75,8 @@ const PutzServiceAblauf = () => {
                 <div className="mt-6 h-1 w-24 bg-[#2AA34D]" />
             </div>
 
-            {/* Steps Grid */}
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 xl:gap-12">
+            {/* Steps Grid - 2x2 Layout für Laptop & Laptop L (bis 1440px), 4 Spalten ab 2xl */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 lg:gap-10 xl:gap-12">
                 {schritte.map((step, index) => (
                     <div
                         key={index}
