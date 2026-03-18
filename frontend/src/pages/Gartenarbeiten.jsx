@@ -16,7 +16,8 @@ function Gartenarbeiten() {
     return (
         <section className="w-full overflow-x-hidden bg-white">
             {/* --- MOBILE HERO (bis 767px) --- */}
-            <div className="relative h-[85vh] overflow-hidden md:hidden">
+            {/* Höhe auf 100vh angepasst */}
+            <div className="relative h-[100vh] overflow-hidden md:hidden">
                 <img
                     src={GartenBanner}
                     alt="Professionelle Gartenarbeiten und Gartenpflege in Düsseldorf"
@@ -56,7 +57,8 @@ function Gartenarbeiten() {
 
             {/* --- TABLET HERO (768px - 1023px) --- */}
             <div className="hidden md:block lg:hidden">
-                <div className="relative h-[70vh] overflow-hidden">
+                {/* Höhe auf 100vh angepasst */}
+                <div className="relative h-[100vh] overflow-hidden">
                     <img
                         src={GartenBanner}
                         alt="Gartenarbeiten und Außenanlagenpflege"

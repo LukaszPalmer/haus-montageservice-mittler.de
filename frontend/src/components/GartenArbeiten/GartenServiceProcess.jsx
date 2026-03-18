@@ -1,6 +1,5 @@
 import React from "react";
 import { FiSearch, FiEdit3, FiCalendar, FiCheckCircle } from "react-icons/fi";
-//a
 
 const GartenServiceProcess = () => {
     const steps = [
@@ -78,8 +77,8 @@ const GartenServiceProcess = () => {
                 <div className="mt-6 h-1 w-24 bg-[#2AA34D]" />
             </div>
 
-            {/* Steps Grid */}
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 xl:gap-12">
+            {/* Steps Grid - Geändertes Layout für Laptop */}
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:gap-10 xl:gap-12 min-[1441px]:grid-cols-4">
                 {steps.map((step, index) => (
                     <div
                         key={index}

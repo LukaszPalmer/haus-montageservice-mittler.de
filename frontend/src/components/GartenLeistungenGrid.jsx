@@ -1,7 +1,7 @@
 import Rasenpflege from "../media/Garten_AVIF/Rasenpflege.avif";
 import Hecken_Strauchschnitt from "../media/Garten_AVIF/Hecken_Strauchschnitt.avif";
 import Laub_Grünflächenpflege from "../media/Garten_AVIF/Laub_Grünflächenpflege.avif";
-import Unkrautentfernung from "../media/Garten_AVIF/Unkrautentfernung.avif";
+import Unkrautentfernung from "../media/Garten_AVIF/New_Querformat_Unkrautentfernung_4kQuery.avif";
 import Saisonarbeiten from "../media/Garten_AVIF/Saisonarbeiten.avif";
 import Allgemeine_Gartenhilfe from "../media/Garten_AVIF/Allgemeine_Gartenhilfe.avif";
 
