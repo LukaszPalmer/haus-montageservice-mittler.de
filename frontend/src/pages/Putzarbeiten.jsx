@@ -1,5 +1,5 @@
 import React from "react";
-import Putzen_Banner from "../media/Putzen_Banner.png";
+import Putzen_Banner from "../media/PutzBanner/Putzen_Banner.avif";
 import Footer from "../components/MobileFooter.jsx";
 import PutzLeistungenGrid from "../components/PutzLeistungenGrid.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";

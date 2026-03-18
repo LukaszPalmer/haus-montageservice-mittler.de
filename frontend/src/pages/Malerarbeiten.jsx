@@ -1,8 +1,8 @@
 import React from "react";
-import MalenNewBanner from "../media/Malen_New_Banner.png";
+import MalenNewBanner from "../media/MalerBanner/Malen_New_Banner.avif";
 import Footer from "../components/MobileFooter.jsx";
 import MalerLeistungenGrid from "../components/MalerLeistungenGrid.jsx";
-import MobileQueryMalenBanner from "../media/MobileQueryMalenBanner.png";
+import MobileQueryMalenBanner from "../media/MalerBanner/MobileQueryMalenBanner.avif";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
 function Malerarbeiten() {

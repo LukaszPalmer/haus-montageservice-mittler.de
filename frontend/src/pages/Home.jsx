@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MobileQueryHero from "../media/MobileQueryStartseite.png";
 import MalerArbeiten from "../media/Malen_Banner_XL_Querys_Ausbesserung.png";
-import gartenRasenlegen from "../media/GartenHeroBanner_XL_QUERY.png";
+import GartenBanner from "../media/GartenBanner/GartenHeroBanner_XL_QUERY.avif";
 import MontageArbeiten from "../media/Montage_New_Banner.png";
 import HausmeisterArbeiten from "../media/HausmeisterCheckArbeiten.png";
-import PutzArbeiten from "../media/Putzen_Banner.png";
+import PutzArbeiten from "../media/PutzBanner/Putzen_Banner.avif";
 import TabletQueryBanner from "../media/TabletQueryBanner.png";
 
 import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
@@ -57,7 +57,7 @@ function Home() {
         {
             title: "Gartenarbeiten",
             text: "Gepflegte Außenbereiche, Rückschnitt und praktische Hilfe rund um Ihr Grün.",
-            image: gartenRasenlegen,
+            image: GartenBanner,
             link: "/gartenarbeiten",
             span: "col-span-2",
         },

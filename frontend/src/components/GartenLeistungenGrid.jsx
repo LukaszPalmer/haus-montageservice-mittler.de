@@ -1,9 +1,9 @@
-import Rasenpflege from "../media/Rasenpflege.png";
-import Hecken_Strauchschnitt from "../media/Hecken_Strauchschnitt.png";
-import Laub_Grünflächenpflege from "../media/Laub_Grünflächenpflege.png";
-import Unkrautentfernung from "../media/Unkrautentfernung.png";
-import Saisonarbeiten from "../media/Saisonarbeiten.png";
-import Allgemeine_Gartenhilfe from "../media/Allgemeine_Gartenhilfe.png";
+import Rasenpflege from "../media/Garten_AVIF/Rasenpflege.avif";
+import Hecken_Strauchschnitt from "../media/Garten_AVIF/Hecken_Strauchschnitt.avif";
+import Laub_Grünflächenpflege from "../media/Garten_AVIF/Laub_Grünflächenpflege.avif";
+import Unkrautentfernung from "../media/Garten_AVIF/Unkrautentfernung.avif";
+import Saisonarbeiten from "../media/Garten_AVIF/Saisonarbeiten.avif";
+import Allgemeine_Gartenhilfe from "../media/Garten_AVIF/Allgemeine_Gartenhilfe.avif";
 
 import Footer from "../components/MobileFooter.jsx";
 

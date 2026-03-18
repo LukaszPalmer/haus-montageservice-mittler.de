@@ -1,5 +1,5 @@
 import React from "react";
-import GartenBanner from "../media/GartenHeroBanner_XL_QUERY.png";
+import GartenBanner from "../media/GartenBanner/GartenHeroBanner_XL_QUERY.avif";
 import Gartenleistungen from "../components/GartenLeistungenGrid";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 

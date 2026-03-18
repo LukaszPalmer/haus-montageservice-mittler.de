@@ -1,9 +1,9 @@
-import Obekt_Reinigung from "../media/Objekt_Reinigung.png";
-import Treppenhausreinigung from "../media/Treppenhausreinigung.png";
-import Allgemeine_Putzdienste from "../media/Allgemeine_Putzdienste.png";
-import Küchen_Oberflächenreinigung from "../media/Küchen_Oberflächenreinigung.png";
-import Fensternahe_Reinigung from "../media/Fensternahe_Reinigung.png";
-import Flexible_Reinigungshilfe from "../media/Flexible_Reinigungshilfe.png";
+import Obekt_Reinigung from "../media/Putzen_AVIF/Objekt_Reinigung.avif"; // setze AVIF here 
+import Treppenhausreinigung from "../media/Putzen_AVIF/Treppenhausreinigung.avif";
+import Allgemeine_Putzdienste from "../media/Putzen_AVIF/Allgemeine_Putzdienste.avif";
+import Küchen_Oberflächenreinigung from "../media/Putzen_AVIF/Küchen_Oberflächenreinigung.avif";
+import Fensternahe_Reinigung from "../media/Putzen_AVIF/Fensternahe_Reinigung.avif";
+import Flexible_Reinigungshilfe from "../media/Putzen_AVIF/Flexible_Reinigungshilfe.avif";
 
 import PutzServiceAblauf from "./PutzarbeitenComponents/PutzServiceAblauf";
 import PutzFAQBereich from "./PutzarbeitenComponents/PutzFAQBereich";
