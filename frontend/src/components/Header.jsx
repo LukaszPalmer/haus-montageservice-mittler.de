@@ -134,7 +134,6 @@ function Header() {
                         <div className={`relative z-10 flex items-center gap-6 lg:gap-8 xl:gap-10 ${isSearchOpen ? "hidden lg:flex" : "flex"}`}>
                             <SocialIcons className="hidden md:flex lg:hidden mr-4 transition-all" />
 
-                            {/* OPTIMIERUNG: Telefon oben erst ab 2xl wieder sichtbar (verborgen auf lg und xl) */}
                             <a
                                 href="tel:015753137765"
                                 className="group flex lg:hidden 2xl:flex items-center gap-3 font-sans text-[0.95rem] font-bold text-[#083224] transition-colors hover:text-[#2AA34D] 2xl:text-[1.15rem]"
@@ -201,8 +200,8 @@ function Header() {
                             {[
                                 { name: "Startseite", path: "/" },
                                 {
-                                    name: "Montage & Hausmeister",
-                                    path: "/montage-hausmeisterarbeiten",
+                                    name: "Montagearbeiten",
+                                    path: "/montagearbeiten",
                                 },
                                 { name: "Malerarbeiten", path: "/malerarbeiten" },
                                 { name: "Gartenarbeiten", path: "/gartenarbeiten" },
@@ -220,7 +219,6 @@ function Header() {
                             ))}
                         </ul>
 
-                        {/* OPTIMIERUNG: Telefonnummer taucht hier nun bei lg und xl (bis 1535px) auf. Leichter rechter Abstand mit mr-2 xl:mr-6 */}
                         <a
                             href="tel:015753137765"
                             className="group hidden lg:flex 2xl:hidden items-center gap-3 font-sans text-[1.05rem] font-bold text-[#083224] transition-colors hover:text-[#2AA34D] shrink-0 ml-8 mr-2 xl:mr-6"
@@ -261,11 +259,11 @@ function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/montage-hausmeisterarbeiten"
+                                    to="/montagearbeiten"
                                     className={mobileNavLinkClass}
                                     onClick={closeMenu}
                                 >
-                                    Montage & Hausmeister
+                                    Montagearbeiten
                                 </NavLink>
                             </li>
                             <li>

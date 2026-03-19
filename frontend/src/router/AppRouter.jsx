@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header.jsx";
-import ScrollToTop from "../components/GenerellWebseiteComponents/ScrollToTop.jsx"; // NEU IMPORTIERT
+import ScrollToTop from "../components/GenerellWebseiteComponents/ScrollToTop.jsx";
 import Home from "../pages/Home";
-import MontageHausmeisterarbeiten from "../pages/MontageHausmeisterarbeiten";
+import Montagearbeiten from "../pages/Montagearbeiten.jsx";
 import Malerarbeiten from "../pages/Malerarbeiten";
 import Gartenarbeiten from "../pages/Gartenarbeiten";
 import Putzarbeiten from "../pages/Putzarbeiten";
@@ -13,15 +13,14 @@ function AppRouter() {
     return (
         <BrowserRouter>
             <Header />
-            {/* Das Gadget wird hier platziert, damit es über allen Routen schwebt */}
             <ScrollToTop /> 
             
             <main className="min-h-screen bg-white text-slate-800">
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
-                        path="/montage-hausmeisterarbeiten"
-                        element={<MontageHausmeisterarbeiten />}
+                        path="/montagearbeiten"
+                        element={<Montagearbeiten />}
                     />
                     <Route path="/malerarbeiten" element={<Malerarbeiten />} />
                     <Route

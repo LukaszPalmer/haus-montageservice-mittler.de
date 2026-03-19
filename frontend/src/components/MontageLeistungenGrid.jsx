@@ -8,17 +8,15 @@ import montagePlaceholder6 from "../media/KleineReperaturenHausmeister.png";
 import ServiceProcess from '../components/HausmeisterComponents/ServiceProcess.jsx';
 import FAQSection from "./HausmeisterComponents/FAQSection.jsx";
 
-
 function MontageLeistungenGrid() {
     const leistungen = [
         {
-            title: "Montagearbeiten",
+            title: "Möbelmontage",
             text: (
                 <>
-                    Wir bieten Ihnen eine fachgerechte Unterstützung bei{" "}
-                    <span className="font-semibold text-[#2AA34D]">Montagen in Düsseldorf</span> und Umgebung. Von der Möbelmontage bis zu komplexen Installationen rund um Ihr Objekt sorgen wir für eine{" "}
-                    <span className="font-semibold text-[#2AA34D]">saubere Ausführung</span> und eine{" "}
-                    <span className="font-semibold text-[#2AA34D]">zuverlässige Umsetzung</span>. Unsere Experten garantieren, dass alle Einbauten ordentlich, stabil und nach höchsten Qualitätsstandards montiert werden.
+                    Wir bieten Ihnen fachgerechte Unterstützung bei der{" "}
+                    <span className="font-semibold text-[#2AA34D]">Montage von Möbeln</span> in Düsseldorf. Von komplexen Schranksystemen bis hin zu Büroausstattungen sorgen wir für eine{" "}
+                    <span className="font-semibold text-[#2AA34D]">stabile Ausführung</span> und ein perfektes Ergebnis nach Herstellervorgaben.
                 </>
             ),
             image: MontageNewBanner,
@@ -28,13 +26,11 @@ function MontageLeistungenGrid() {
             titleSize: "text-[1.8rem] md:text-[2.2rem] lg:text-[2.6rem] xl:text-[3rem] 2xl:text-[3.5rem] min-[2200px]:text-[4rem]",
         },
         {
-            title: "Kleine Reparaturen",
+            title: "Kleinstmontagen",
             text: (
                 <>
-                    Unser Team übernimmt die schnelle Behebung kleinerer Mängel und führt{" "}
-                    <span className="font-semibold text-[#2AA34D]">praktische Instandsetzungen</span> im Alltag durch. Ob klemmende Türen oder technische Ausbesserungen – wir sorgen dafür, dass Ihre Immobilie stets{" "}
-                    <span className="font-semibold text-[#2AA34D]">funktional</span> bleibt und einen sichtbaren{" "}
-                    <span className="font-semibold text-[#2AA34D]">gepflegten Eindruck</span> bei Bewohnern und Gästen hinterlässt.
+                    Unser Team übernimmt die Befestigung von Spiegeln, Bildern, Regalen oder Lampen. Wir garantieren eine{" "}
+                    <span className="font-semibold text-[#2AA34D]">sichere Verankerung</span> in jedem Untergrund und sorgen für ein optisch einwandfreies Gesamtbild Ihrer Räume.
                 </>
             ),
             image: HausmeiserReperaturGlühbirne,
@@ -44,13 +40,11 @@ function MontageLeistungenGrid() {
             titleSize: "text-[1.4rem] md:text-[1.7rem] lg:text-[1.9rem] xl:text-[2.2rem] 2xl:text-[2.5rem] min-[2200px]:text-[2.8rem]",
         },
         {
-            title: "Hausmeisterdienste",
+            title: "Küchenmontage",
             text: (
                 <>
-                    Professionelle Rundum-Betreuung für Ihre Wohnung, Ihr Haus oder Ihr Gewerbeobjekt. Als Ihr{" "}
-                    <span className="font-semibold text-[#2AA34D]">Hausmeisterservice</span> schaffen wir nachhaltig{" "}
-                    <span className="font-semibold text-[#2AA34D]">Ordnung und Sicherheit</span>. Wir behalten den Überblick über alle technischen Anlagen und sorgen für einen dauerhaft{" "}
-                    <span className="font-semibold text-[#2AA34D]">betreuten Zustand</span> Ihrer gesamten Liegenschaft.
+                    Professionelle Unterstützung beim Aufbau oder Umbau Ihrer Küchenelemente. Wir achten auf{" "}
+                    <span className="font-semibold text-[#2AA34D]">millimetergenaue Ausrichtung</span> und sorgen dafür, dass alle Komponenten funktional und optisch perfekt integriert werden.
                 </>
             ),
             image: montagePlaceholder3,
@@ -60,12 +54,11 @@ function MontageLeistungenGrid() {
             titleSize: "text-[1.4rem] md:text-[1.7rem] lg:text-[1.9rem] xl:text-[2.2rem] 2xl:text-[2.5rem] min-[2200px]:text-[2.8rem]",
         },
         {
-            title: "Instandhaltung",
+            title: "Büro- & Objekteinrichtung",
             text: (
                 <>
-                    Werterhalt durch Prävention: Wir unterstützen Sie bei der laufenden Pflege und Kontrolle Ihrer Räumlichkeiten. Durch eine{" "}
-                    <span className="font-semibold text-[#2AA34D]">regelmäßige Betreuung</span> und fachkundige Wartung vermeiden wir teure Folgeschäden. Wir stellen sicher, dass Ihr Objekt jederzeit{" "}
-                    <span className="font-semibold text-[#2AA34D]">ordentlich, sicher und einsatzbereit</span> ist, egal ob Privatbesitz oder Gewerbefläche.
+                    Effiziente Montage ganzer Arbeitswelten. Wir übernehmen die Aufstellung von Schreibtischsystemen, Trennwänden und Akustikelementen. Durch eine{" "}
+                    <span className="font-semibold text-[#2AA34D]">strukturierte Arbeitsweise</span> minimieren wir Ausfallzeiten in Ihrem Betrieb und garantieren höchste Belastbarkeit.
                 </>
             ),
             image: InstantHaltungHausmeister,
@@ -75,13 +68,11 @@ function MontageLeistungenGrid() {
             titleSize: "text-[1.5rem] md:text-[1.9rem] lg:text-[2.2rem] xl:text-[2.5rem] 2xl:text-[2.8rem] min-[2200px]:text-[3.2rem]",
         },
         {
-            title: "Objektservice",
+            title: "Reparaturmontage",
             text: (
                 <>
-                    Individuelle Konzepte für die Bewirtschaftung Ihrer Außenbereiche und Gebäude. Unser{" "}
-                    <span className="font-semibold text-[#2AA34D]">Objektservice</span> übernimmt wiederkehrende Aufgaben mit höchstem{" "}
-                    <span className="font-semibold text-[#2AA34D]">Blick fürs Detail</span>. Wir garantieren ein repräsentatives und insgesamt{" "}
-                    <span className="font-semibold text-[#2AA34D]">gepflegtes Erscheinungsbild</span>, das den Wert Ihrer Immobilie langfristig steigert.
+                    Instandsetzung beschädigter Beschläge, Scharniere oder Griffe. Unser{" "}
+                    <span className="font-semibold text-[#2AA34D]">Montageservice</span> bringt Ihre vorhandene Einrichtung wieder in Top-Zustand, bevor ein teurer Neukauf nötig wird.
                 </>
             ),
             image: ObjektServiceHausmeister,
@@ -91,12 +82,11 @@ function MontageLeistungenGrid() {
             titleSize: "text-[1.4rem] md:text-[1.7rem] lg:text-[1.9rem] xl:text-[2.2rem] 2xl:text-[2.5rem] min-[2200px]:text-[2.8rem]",
         },
         {
-            title: "Flexible Unterstützung",
+            title: "Spezialmontagen",
             text: (
                 <>
-                    Wir sind da, wenn Sie uns brauchen – unbürokratisch und schnell. Ob bei Umzügen, Entrümpelungen oder saisonalen Arbeiten, wir bieten{" "}
-                    <span className="font-semibold text-[#2AA34D]">praktische Unterstützung</span> nach Maß. Unser Ziel ist es, Sie im Alltag maximal zu entlasten und für einen{" "}
-                    <span className="font-semibold text-[#2AA34D]">reibungslosen Ablauf</span> all Ihrer Vorhaben rund ums Haus zu sorgen.
+                    Individuelle Lösungen für alles, was nicht von der Stange kommt. Ob Wandhalterungen für Technik oder komplexe Dekorationen – wir finden für jede Herausforderung eine{" "}
+                    <span className="font-semibold text-[#2AA34D]">fachgerechte Lösung</span> für Ihre Räume.
                 </>
             ),
             image: montagePlaceholder6,
@@ -109,23 +99,21 @@ function MontageLeistungenGrid() {
 
     return (
         <section className="relative mx-auto w-full max-w-[100%] overflow-hidden bg-white px-5 py-12 md:px-8 md:py-16 lg:px-12 lg:py-20 xl:max-w-[1700px] xl:px-16 xl:py-24 2xl:max-w-[1900px] 2xl:px-20 2xl:py-28 min-[2200px]:max-w-[2200px] min-[2200px]:px-24 min-[2200px]:py-32 min-[2560px]:max-w-[2400px] min-[2560px]:px-28">
-            
-            {/* Subtiler Hintergrund-Shape für Premium-Look */}
             <div className="absolute left-[-10%] top-[10%] -z-0 h-[500px] w-[500px] rounded-full bg-[#2AA34D]/[0.02] blur-[120px]" />
 
             <div className="relative z-10">
                 <div className="max-w-4xl xl:max-w-[1100px] 2xl:max-w-[1220px] min-[2200px]:max-w-[1340px]">
                     <span className="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-[#2AA34D] md:text-sm md:tracking-[0.24em] lg:text-[0.95rem] xl:text-[1rem] 2xl:text-[1.06rem] min-[2200px]:text-[1.12rem]">
-                        Premium Objektpflege
+                        Qualität & Präzision
                     </span>
 
                     <h2 className="font-heading mt-4 text-[2.2rem] font-extrabold uppercase leading-[1] tracking-[-0.03em] text-[#083224] md:text-[3.5rem] lg:text-[4.2rem] xl:text-[4.8rem] 2xl:text-[5.4rem] min-[2200px]:text-[6rem]">
-                        Montage &<br />
-                        Hausmeisterarbeiten
+                        Fachgerechte<br />
+                        Montagearbeiten
                     </h2>
 
                     <p className="mt-6 max-w-[860px] font-sans text-[1.1rem] leading-relaxed text-[#42514A] md:text-[1.25rem] lg:text-[1.35rem] xl:max-w-[1000px] xl:text-[1.45rem] 2xl:text-[1.6rem] min-[2200px]:max-w-[1200px] min-[2200px]:text-[1.8rem]">
-                        Qualität aus Meisterhand: Entdecken Sie unsere spezialisierten Leistungen für professionelle Montagen, Werterhalt durch Instandhaltung und tatkräftige Unterstützung für private und gewerbliche Objekte.
+                        Präzision aus Meisterhand: Entdecken Sie unsere spezialisierten Leistungen für professionelle Montagen und fachgerechte Installationen für private und gewerbliche Objekte in Düsseldorf.
                     </p>
                 </div>
 
@@ -149,12 +137,10 @@ function MontageLeistungenGrid() {
                                     <h3 className={`font-heading font-bold leading-tight text-[#083224] transition-colors duration-300 group-hover:text-[#2AA34D] ${item.titleSize}`}>
                                         {item.title}
                                     </h3>
-
                                     <p className="mt-4 max-w-[98%] font-sans text-[1rem] leading-relaxed text-[#42514A] md:text-[1.1rem] lg:text-[1.15rem] xl:text-[1.25rem] 2xl:text-[1.35rem] min-[2200px]:text-[1.5rem]">
                                         {item.text}
                                     </p>
                                 </div>
-
                                 <div className="mt-8 md:mt-10 lg:mt-12">
                                     <a
                                         href={item.link}
