@@ -3,6 +3,8 @@ import Putzen_Banner from "../media/PutzBanner/Putzen_Banner.avif";
 import Footer from "../components/MobileFooter.jsx";
 import PutzLeistungenGrid from "../components/PutzLeistungenGrid.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
+import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
+
 
 function Putzarbeiten() {
     // Funktion für weiches Scrollen zur ersten Dienstleistung
@@ -223,6 +225,7 @@ function Putzarbeiten() {
             <div id="erste-dienstleistung"></div>
 
             <PutzLeistungenGrid />
+            <SocialConnect/>
             <Footer />
         </section>
     );

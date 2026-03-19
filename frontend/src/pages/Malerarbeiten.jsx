@@ -7,6 +7,9 @@ import New_Malenbanner_LaptopQuery from '../media/MalerBanner/Laptop_Query_Malen
 import New_Malenbanner_TabletQuery from '../media/MalerBanner/Tablet_Query_Malenbanner.avif';
 import New_Malerbanner_Mobile_L_Query from '../media/MalerBanner/MobileL_Query_Malerbanner.avif';
 
+import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
+
+
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
 function Malerarbeiten() {
@@ -225,6 +228,7 @@ function Malerarbeiten() {
 
             <div id="erste-dienstleistung"></div>
             <MalerLeistungenGrid />
+            <SocialConnect/>
             <Footer />
         </section>
     );

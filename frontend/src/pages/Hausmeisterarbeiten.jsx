@@ -4,6 +4,10 @@ import Footer from "../components/MobileFooter.jsx";
 import HausmeisterLeistungenGrid from "../components/HausmeisterLeistungsGrid.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
+
+import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
+
+
 function Hausmeisterarbeiten() {
     const scrollToLeistungen = (e) => {
         e.preventDefault();
@@ -79,6 +83,7 @@ function Hausmeisterarbeiten() {
 
             <div id="erste-dienstleistung"></div>
             <HausmeisterLeistungenGrid />
+            <SocialConnect/>
             <Footer />
         </section>
     );

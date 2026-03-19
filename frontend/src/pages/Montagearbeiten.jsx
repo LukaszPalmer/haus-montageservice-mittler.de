@@ -1,6 +1,7 @@
 import MontageBanner_XL_Query_Quadratformat from '../media/MontageBanner/MontageBanner_XL_Query_Quadratformat.png';
 import Footer from "../components/MobileFooter.jsx";
 import MontageLeistungenGrid from "../components/MontageLeistungenGrid.jsx";
+import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
 function MontageHausmeisterarbeiten() {
@@ -206,6 +207,7 @@ function MontageHausmeisterarbeiten() {
 
             <div id="erste-dienstleistung"></div>
             <MontageLeistungenGrid />
+            <SocialConnect/>
             <Footer />
         </section>
     );

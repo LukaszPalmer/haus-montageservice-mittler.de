@@ -2,6 +2,7 @@ import React from "react";
 import GartenBanner from "../media/GartenBanner/GartenHeroBanner_XL_QUERY.avif";
 import Gartenleistungen from "../components/GartenLeistungenGrid";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
+import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
 
 function Gartenarbeiten() {
     // Funktion für weiches Scrollen zur ersten Dienstleistung
@@ -225,8 +226,8 @@ function Gartenarbeiten() {
 
             {/* Sprungmarke für alle Ansichten */}
             <div id="erste-dienstleistung"></div>
-
             <Gartenleistungen />
+
         </section>
     );
 }
