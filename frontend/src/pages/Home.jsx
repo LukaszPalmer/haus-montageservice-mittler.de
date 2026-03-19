@@ -8,6 +8,9 @@ import HausmeisterArbeiten from "../media/Hausmeister_AVIF/Reperaturservice_XL_Q
 import PutzArbeiten from "../media/PutzBanner/Putzen_Banner.avif";
 import TabletQueryBanner from "../media/TabletQueryBanner.png";
 
+import StartPageBanner_XL_Query from '../media/StartPageBanner/StartPageBanner_XL_Query.avif';
+import StartPageBanner_MQ_Query from '../media/StartPageBanner/StartPageBanner_MQ_Query.avif';
+
 import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
 import GoogleReviewComponent from "../components/GenerellWebseiteComponents/GoogleReviewComponent.jsx"; // SPÄTER ERGÄNZEN
 
@@ -95,7 +98,7 @@ function Home() {
             {/* Klasse hero-container-mobile-tablet hinzugefügt für 100vh Steuerung */}
             <div className="relative h-[85vh] overflow-hidden md:hidden hero-container-mobile-tablet">
                 <img
-                    src={MobileQueryHero}
+                    src={StartPageBanner_MQ_Query}
                     alt="Haus & Montageservice Mittler"
                     className="h-full w-full object-cover"
                 />
@@ -134,7 +137,7 @@ function Home() {
             <div className="hidden md:block lg:hidden">
                 <div className="relative h-[70vh] overflow-hidden hero-container-mobile-tablet">
                     <img
-                        src={TabletQueryBanner}
+                        src={StartPageBanner_XL_Query}
                         alt="Haus & Montageservice Mittler"
                         className="h-full w-full object-cover"
                     />
@@ -177,7 +180,7 @@ function Home() {
             <div className="hidden lg:block">
                 <div className="relative h-[85vh] overflow-hidden">
                     <img
-                        src={TabletQueryBanner}
+                        src={StartPageBanner_XL_Query}
                         alt="Exklusive Hausdienstleistungen Mittler"
                         className="h-full w-full object-cover"
                     />
