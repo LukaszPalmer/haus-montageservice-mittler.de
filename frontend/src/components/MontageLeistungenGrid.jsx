@@ -1,9 +1,9 @@
-import Montage_Küche_XL_Query_Quadratformat from '../media/Montage_AVIF/KüchenMontage_XL_Query_QuadratFormat.png';
-import New_Montage_Büro_Einrichtung_Querformat_XL_Query from '../media/Montage_AVIF/XL_QUERY_QUERFORMAT_BÜROEINRICHTUNG.png';
-import Badezimmer_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Banezimmermontage_XL_Query_Quadratformat.png';
-import Wohnzimmer_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Wohnzimmer_Montage_XL_Query_Quadrat_Format.png';
-import Klein_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Kleinmontage_XL_Query_Quadratform.png';
-import Möbelmontage_XL_Query_Querformat from '../media/Montage_AVIF/Möbel_Montage_XL_Query_Querformat.png';
+import Montage_Küche_XL_Query_Quadratformat from '../media/Montage_AVIF/KüchenMontage_XL_Query_QuadratFormat.avif';
+import New_Montage_Büro_Einrichtung_Querformat_XL_Query from '../media/Montage_AVIF/XL_QUERY_QUERFORMAT_BÜROEINRICHTUNG.avif';
+import Badezimmer_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Banezimmermontage_XL_Query_Quadratformat.avif';
+import Wohnzimmer_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Wohnzimmer_Montage_XL_Query_Quadrat_Format.avif';
+import Klein_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Kleinmontage_XL_Query_Quadratform.avif';
+import Möbelmontage_XL_Query_Querformat from '../media/Montage_AVIF/Möbel_Montage_XL_Query_Querformat.avif';
 
 import ServiceProcess from '../components/HausmeisterComponents/ServiceProcess.jsx';
 import FAQSection from "./HausmeisterComponents/FAQSection.jsx";

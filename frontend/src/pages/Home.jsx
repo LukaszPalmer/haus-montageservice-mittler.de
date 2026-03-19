@@ -4,11 +4,12 @@ import MobileQueryHero from "../media/MobileQueryStartseite.png";
 import MalerArbeiten from "../media/Malen_Banner_XL_Querys_Ausbesserung.png";
 import GartenBanner from "../media/GartenBanner/GartenHeroBanner_XL_QUERY.avif";
 import MontageArbeiten from "../media/Montage_New_Banner.png";
-import HausmeisterArbeiten from "../media/HausmeisterCheckArbeiten.png";
+import HausmeisterArbeiten from "../media/Hausmeister_AVIF/Reperaturservice_XL_Quadratform (1).avif";
 import PutzArbeiten from "../media/PutzBanner/Putzen_Banner.avif";
 import TabletQueryBanner from "../media/TabletQueryBanner.png";
 
 import SocialConnect from "../components/KarriereComponents/SocialConnect.jsx";
+import GoogleReviewComponent from "../components/GenerellWebseiteComponents/GoogleReviewComponent.jsx"; // SPÄTER ERGÄNZEN
 
 import MobileLuxuryShapeSection from "../components/MobileLuxuryShapeSection";
 import MobileTrustSection from "../components/MobileTrustSection";
