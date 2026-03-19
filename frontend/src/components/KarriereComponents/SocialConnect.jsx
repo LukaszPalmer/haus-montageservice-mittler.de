@@ -5,8 +5,6 @@ import {
     FiFacebook,
     FiArrowRight,
     FiUsers,
-    FiClock,
-    FiActivity,
 } from "react-icons/fi";
 
 // Eine wiederverwendbare Komponente für die Counter-Animation
@@ -56,12 +54,12 @@ const AnimateCounter = ({ targetValue, label }) => {
     );
 };
 
-const SocialCard = ({ platform, handle, icon, color, delay, link, desc }) => (
+const SocialCard = ({ platform, handle, icon, color, delay, link, desc, extraClasses = "" }) => (
     <a
         href={link}
         target="_blank"
         rel="noopener noreferrer"
-        className={`group relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl lg:col-span-1`}
+        className={`group relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${extraClasses}`}
         style={{ transitionDelay: `${delay}ms` }}
     >
         <div
@@ -135,10 +133,10 @@ function SocialConnect() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">
+                    {/* Anpassung des Grids: lg:grid-cols-2 sorgt für das 2er-Layout bei 1024px. xl:grid-cols-3 schaltet ab 1280px/1440px zurück auf 3er Layout */}
+                    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:col-span-8 lg:grid-cols-2 xl:grid-cols-3">
                         <SocialCard
                             platform="Instagram"
-                            /* \u200B ist ein unsichtbares Trennzeichen, damit der Browser hier bricht */
                             handle={"Haus_\u200BMontageservice_\u200BMittler"}
                             icon={<FiInstagram size={28} />}
                             color="bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888]"
@@ -163,6 +161,8 @@ function SocialConnect() {
                             delay={300}
                             link="https://facebook.com/Haus-Montageservice-Mittler"
                             desc="Lokale News, Projekt-Updates und direkter Austausch mit unserer Community in der Region."
+                            // Bei Laptop Query (lg) nimmt Facebook 2 Spalten ein (rutscht darunter), ab XL (Desktop L) wieder nur eine
+                            extraClasses="lg:col-span-2 xl:col-span-1"
                         />
                     </div>
                 </div>

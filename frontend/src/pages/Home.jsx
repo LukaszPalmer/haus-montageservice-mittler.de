@@ -18,12 +18,10 @@ import EinsatzgebietSection from "../components/EinsatzgebietSection.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
 
 function Home() {
-    // Funktion, um beim Navigieren nach oben zu scrollen
     const scrollToTop = () => {
         window.scrollTo(0, 0);
     };
 
-    // Funktion für weiches Scrollen zur ersten Dienstleistung
     const scrollToLeistungen = (e) => {
         e.preventDefault();
         const element = document.getElementById("erste-dienstleistung");
@@ -72,8 +70,29 @@ function Home() {
 
     return (
         <section className="w-full overflow-x-hidden bg-white">
+            {/* --- CSS FIX FÜR SPEZIFISCHE QUERYS --- */}
+            <style dangerouslySetInnerHTML={{ __html: `
+                /* Laptop Query: Social Connect Grid Anpassung */
+                @media (min-width: 1024px) and (max-width: 1439px) {
+                    .social-connect-grid { 
+                        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+                    }
+                    .social-card-facebook { 
+                        grid-column: span 2 !important; 
+                    }
+                }
+
+                /* Mobile M, L & Tablet: Hero 100vh */
+                @media (min-width: 375px) and (max-width: 900px) {
+                    .hero-container-mobile-tablet { 
+                        height: 100vh !important; 
+                    }
+                }
+            `}} />
+
             {/* --- MOBILE HERO --- */}
-            <div className="relative h-[85vh] overflow-hidden md:hidden">
+            {/* Klasse hero-container-mobile-tablet hinzugefügt für 100vh Steuerung */}
+            <div className="relative h-[85vh] overflow-hidden md:hidden hero-container-mobile-tablet">
                 <img
                     src={MobileQueryHero}
                     alt="Haus & Montageservice Mittler"
@@ -110,8 +129,9 @@ function Home() {
             </div>
 
             {/* --- TABLET HERO --- */}
+            {/* Klasse hero-container-mobile-tablet hinzugefügt für 100vh Steuerung */}
             <div className="hidden md:block lg:hidden">
-                <div className="relative h-[70vh] overflow-hidden">
+                <div className="relative h-[70vh] overflow-hidden hero-container-mobile-tablet">
                     <img
                         src={TabletQueryBanner}
                         alt="Haus & Montageservice Mittler"
@@ -198,7 +218,6 @@ function Home() {
                     </div>
                 </div>
 
-                {/* --- DESKTOP INTRO --- */}
                 <div
                     id="leistungen-start"
                     className="mx-auto w-full max-w-[1700px] px-16 py-24 xl:px-20 2xl:max-w-[1900px] 2xl:py-32 min-[2200px]:max-w-[2200px]"
@@ -218,7 +237,6 @@ function Home() {
                 </div>
             </div>
 
-            {/* --- MOBILE & TABLET INTRO (Sichtbar auf md und kleiner als lg) --- */}
             <div id="leistungen-start" className="lg:hidden px-6 pt-16 pb-12 md:px-10 md:pt-24 md:pb-16">
                 <div className="md:max-w-[700px]">
                     <span className="font-sans text-[0.8rem] font-bold uppercase tracking-[0.2em] text-[#2AA34D] md:text-[0.9rem]">
@@ -234,9 +252,7 @@ function Home() {
                 </div>
             </div>
 
-            {/* Sprungmarke / Wrapper für die ersten Dienstleistungen */}
             <div id="erste-dienstleistung">
-                {/* --- LEISTUNGEN GRID (TABLET/DESKTOP) --- */}
                 <div className="hidden md:block mx-auto w-full max-w-[1700px] px-10 pb-24 lg:px-16 xl:px-20 2xl:max-w-[1900px] min-[2200px]:max-w-[2200px]">
                     <div className="grid grid-cols-2 gap-10 xl:gap-14">
                         {leistungen.map((item) => (
@@ -273,7 +289,6 @@ function Home() {
                     </div>
                 </div>
 
-                {/* --- MOBILE LEISTUNGEN --- */}
                 <div className="md:hidden px-6 pb-20 space-y-12">
                     {leistungen.map((item) => (
                         <article key={item.title} className="overflow-hidden">
@@ -298,7 +313,12 @@ function Home() {
             <MobileJobsApplicationSection />
             <EinsatzgebietSection />
             <MobileTrustSection />
-            <SocialConnect/>
+            
+            {/* Das SocialConnect-Element nutzt nun die im Style-Tag definierten Klassen */}
+            <div className="social-connect-wrapper">
+                <SocialConnect />
+            </div>
+
             <MobileFooter />
         </section>
     );
