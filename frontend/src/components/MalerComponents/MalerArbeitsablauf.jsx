@@ -78,33 +78,35 @@ const MalerArbeitsablauf = () => {
                 <div className="mt-6 h-1 w-24 bg-[#2AA34D]" />
             </div>
 
-            {/* Steps Grid */}
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 xl:gap-12">
+            {/* Steps Grid - Geändert auf 2 Spalten für Laptop & Laptop L */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 lg:gap-12 xl:gap-16">
                 {steps.map((step, index) => (
                     <div
                         key={index}
-                        className="group relative flex flex-col bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 lg:p-10"
+                        className="group relative flex flex-col bg-white p-10 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-2 lg:p-14"
                     >
                         {/* Hintergrund Nummer */}
-                        <span className="absolute right-4 top-2 select-none font-heading text-[5rem] font-black text-[#083224]/5 transition-colors group-hover:text-[#2AA34D]/10">
+                        <span className="absolute right-6 top-4 select-none font-heading text-[6rem] font-black text-[#083224]/5 transition-colors group-hover:text-[#2AA34D]/10">
                             {step.number}
                         </span>
 
                         {/* Icon */}
-                        <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#D7F2DD] text-[#2AA34D] transition-colors group-hover:bg-[#2AA34D] group-hover:text-white">
+                        <div className="mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-[#D7F2DD] text-[#2AA34D] transition-colors group-hover:bg-[#2AA34D] group-hover:text-white">
                             {step.icon}
                         </div>
 
                         {/* Content */}
-                        <h3 className="font-heading mb-4 text-xl font-bold text-[#083224] lg:text-2xl">
-                            {step.title}
-                        </h3>
-                        <p className="font-sans text-[0.95rem] leading-relaxed text-[#42514A] md:text-[1rem] lg:text-[1.05rem]">
-                            {step.text}
-                        </p>
+                        <div className="relative z-10 max-w-[85%]">
+                            <h3 className="font-heading mb-6 text-2xl font-bold text-[#083224] lg:text-3xl">
+                                {step.title}
+                            </h3>
+                            <p className="font-sans text-[1.05rem] leading-relaxed text-[#42514A] md:text-[1.1rem] lg:text-[1.15rem]">
+                                {step.text}
+                            </p>
+                        </div>
 
                         {/* Bottom Accent */}
-                        <div className="absolute bottom-0 left-0 h-1 w-0 bg-[#2AA34D] transition-all duration-500 group-hover:w-full" />
+                        <div className="absolute bottom-0 left-0 h-1.5 w-0 bg-[#2AA34D] transition-all duration-500 group-hover:w-full" />
                     </div>
                 ))}
             </div>
