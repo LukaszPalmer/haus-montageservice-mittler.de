@@ -8,3 +8,15 @@
 
 5. Mobile L Query => Folgen sie Uns wird nach ganz Links plaziert und nach ganz rechts kommt der Karriere Button mit einer Überschrift "Karriere" genau wie bei den Social Media icons
 
+
+
+
+
+
+
+
+
+Bitte ohne schrift auf dem Bild
+Bitte mehr Szenen
+Schau was du mir für Gartenarbeiten erstellst hast.
+Kannst du nicht den ungefähr gleichen Banner wie Gartenarbeiten aber mir einen Banner für Malerarbeiten
