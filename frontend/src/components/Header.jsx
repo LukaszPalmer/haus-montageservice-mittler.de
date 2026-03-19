@@ -196,12 +196,16 @@ function Header() {
                 {/* Sub-Navigation (Desktop) */}
                 <nav className="relative z-10 mt-6 hidden border-t border-[#F0F4F1] pt-6 md:block">
                     <div className="flex items-center justify-between w-full">
-                        <ul className="flex flex-1 items-center justify-between lg:justify-start lg:gap-12 xl:gap-16">
+                        <ul className="flex flex-1 items-center justify-between lg:justify-start lg:gap-8 xl:gap-12">
                             {[
                                 { name: "Startseite", path: "/" },
                                 {
                                     name: "Montagearbeiten",
                                     path: "/montagearbeiten",
+                                },
+                                {
+                                    name: "Hausmeisterarbeiten",
+                                    path: "/hausmeisterarbeiten",
                                 },
                                 { name: "Malerarbeiten", path: "/malerarbeiten" },
                                 { name: "Gartenarbeiten", path: "/gartenarbeiten" },
@@ -264,6 +268,15 @@ function Header() {
                                     onClick={closeMenu}
                                 >
                                     Montagearbeiten
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                    to="/hausmeisterarbeiten"
+                                    className={mobileNavLinkClass}
+                                    onClick={closeMenu}
+                                >
+                                    Hausmeisterarbeiten
                                 </NavLink>
                             </li>
                             <li>

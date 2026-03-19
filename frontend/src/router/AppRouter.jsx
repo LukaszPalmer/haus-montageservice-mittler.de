@@ -4,6 +4,7 @@ import ScrollToTop from "../components/GenerellWebseiteComponents/ScrollToTop.js
 import Home from "../pages/Home";
 import Montagearbeiten from "../pages/Montagearbeiten.jsx";
 import Malerarbeiten from "../pages/Malerarbeiten";
+import Hausmeisterarbeiten from '../pages/Hausmeisterarbeiten.jsx';
 import Gartenarbeiten from "../pages/Gartenarbeiten";
 import Putzarbeiten from "../pages/Putzarbeiten";
 import Kontakt from "../components/KontaktComponents/Kontakt.jsx";
@@ -21,6 +22,10 @@ function AppRouter() {
                     <Route
                         path="/montagearbeiten"
                         element={<Montagearbeiten />}
+                    />
+                    <Route
+                        path="/hausmeisterarbeiten"
+                        element={<Hausmeisterarbeiten />}
                     />
                     <Route path="/malerarbeiten" element={<Malerarbeiten />} />
                     <Route
