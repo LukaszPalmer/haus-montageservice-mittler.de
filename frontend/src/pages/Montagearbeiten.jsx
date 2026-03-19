@@ -1,4 +1,4 @@
-import MontageNewBanner from "../media/Montage_New_Banner.png";
+import MontageBanner_XL_Query_Quadratformat from '../media/MontageBanner/MontageBanner_XL_Query_Quadratformat.png';
 import Footer from "../components/MobileFooter.jsx";
 import MontageLeistungenGrid from "../components/MontageLeistungenGrid.jsx";
 import { FiArrowDown, FiArrowUpRight } from "react-icons/fi";
@@ -17,7 +17,7 @@ function MontageHausmeisterarbeiten() {
             {/* --- MOBILE HERO --- */}
             <div className="relative h-[85vh] overflow-hidden md:hidden">
                 <img
-                    src={MontageNewBanner}
+                    src={MontageBanner_XL_Query_Quadratformat }
                     alt="Professioneller Montageservice in Düsseldorf"
                     className="h-full w-full object-cover"
                 />
@@ -57,7 +57,7 @@ function MontageHausmeisterarbeiten() {
             <div className="hidden md:block lg:hidden">
                 <div className="relative h-[70vh] overflow-hidden">
                     <img
-                        src={MontageNewBanner}
+                        src={MontageBanner_XL_Query_Quadratformat }
                         alt="Professioneller Montageservice"
                         className="h-full w-full object-cover"
                     />
@@ -107,7 +107,7 @@ function MontageHausmeisterarbeiten() {
             <div className="hidden lg:block">
                 <div className="relative h-[85vh] overflow-hidden">
                     <img
-                        src={MontageNewBanner}
+                        src={MontageBanner_XL_Query_Quadratformat }
                         alt="Exklusive Montagearbeiten"
                         className="h-full w-full object-cover transition-transform duration-[2000ms] hover:scale-105"
                     />

@@ -95,6 +95,13 @@ function Header() {
                     : "-translate-y-full opacity-0"
             }`}
         >
+            {/* CSS Fix gegen Auto-Zoom auf Mobile (Input Font-Size >= 16px) */}
+            <style dangerouslySetInnerHTML={{ __html: `
+                @media screen and (max-width: 767px) {
+                    input, select, textarea { font-size: 16px !important; }
+                }
+            `}} />
+
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_100%_at_50%_0%,rgba(42,163,77,0.03)_0%,transparent_100%)]" />
 
             <HeaderGrowth />
@@ -124,7 +131,6 @@ function Header() {
                         />
                     </NavLink>
 
-                    {/* Desktop Navigation & Actions */}
                     <div className="hidden flex-1 items-center justify-between md:flex">
                         
                         <div className={`relative z-50 transition-all duration-300 ${isSearchOpen ? "w-full lg:w-auto lg:pl-10 xl:pl-20" : "pl-4 lg:pl-10 xl:pl-20"}`}>
@@ -164,7 +170,6 @@ function Header() {
                         </div>
                     </div>
 
-                    {/* Mobile Controls */}
                     <div className={`flex items-center gap-3 sm:gap-5 md:hidden transition-all duration-300 ${isSearchOpen ? "w-full" : ""}`}>
                         <div className={`${isSearchOpen ? "w-full" : ""}`}>
                             <HeaderSearch onSearchStateChange={setIsSearchOpen} />
@@ -193,29 +198,18 @@ function Header() {
                     </div>
                 </div>
 
-                {/* Sub-Navigation (Desktop) */}
                 <nav className="relative z-10 mt-6 hidden border-t border-[#F0F4F1] pt-6 md:block">
                     <div className="flex items-center justify-between w-full">
                         <ul className="flex flex-1 items-center justify-between lg:justify-start lg:gap-8 xl:gap-12">
                             {[
-                                { name: "Startseite", path: "/" },
-                                {
-                                    name: "Montagearbeiten",
-                                    path: "/montagearbeiten",
-                                },
-                                {
-                                    name: "Hausmeisterarbeiten",
-                                    path: "/hausmeisterarbeiten",
-                                },
+                                { name: "Montagearbeiten", path: "/montagearbeiten" },
+                                { name: "Hausmeisterarbeiten", path: "/hausmeisterarbeiten" },
                                 { name: "Malerarbeiten", path: "/malerarbeiten" },
                                 { name: "Gartenarbeiten", path: "/gartenarbeiten" },
                                 { name: "Putzarbeiten", path: "/putzarbeiten" },
                             ].map((item) => (
                                 <li key={item.path}>
-                                    <NavLink
-                                        to={item.path}
-                                        className={navLinkClass}
-                                    >
+                                    <NavLink to={item.path} className={navLinkClass}>
                                         {item.name}
                                         <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-[#2AA34D] transition-all duration-300 group-hover:w-full" />
                                     </NavLink>
@@ -230,82 +224,40 @@ function Header() {
                             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#2AA34D]/[0.05] text-[#2AA34D] transition-all group-hover:bg-[#2AA34D] group-hover:text-white">
                                 <FiPhone size={18} />
                             </div>
-                            <span>
-                                01575 3137765
-                            </span>
+                            <span>01575 3137765</span>
                         </a>
                     </div>
                 </nav>
 
-                {/* Mobile Menu Overlay */}
                 <div
                     className={`fixed inset-0 top-[72px] z-50 transform bg-white transition-transform duration-500 md:hidden h-[calc(100vh-72px)] overflow-y-auto ${
                         isMenuOpen ? "translate-x-0" : "translate-x-full"
                     }`}
                 >
                     <nav className="flex min-h-full flex-col p-6">
-                        <div className="mb-8 flex flex-col items-center justify-center border-b border-gray-100 pb-8">
-                            <span className="mb-4 font-sans text-[0.7rem] font-bold uppercase tracking-widest text-slate-400">
-                                Folgen Sie uns
-                            </span>
-                            <SocialIcons />
+                        {/* Optimierter Bereich: Folgen Sie uns links, Karriere rechts */}
+                        <div className="mb-8 flex items-end justify-between border-b border-gray-100 pb-8">
+                            <div className="flex flex-col">
+                                <span className="mb-4 font-sans text-[0.7rem] font-bold uppercase tracking-widest text-slate-400">
+                                </span>
+                                <SocialIcons />
+                            </div>
+                            <Link
+                                to="/karriere"
+                                onClick={closeMenu}
+                                className="border border-[#D9E7DC] px-5 py-2.5 text-[0.85rem] font-bold uppercase tracking-wider text-[#083224] transition-all"
+                            >
+                                Karriere
+                            </Link>
                         </div>
 
                         <ul className="space-y-2">
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    className={mobileNavLinkClass}
-                                    onClick={closeMenu}
-                                >
-                                    Startseite
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/montagearbeiten"
-                                    className={mobileNavLinkClass}
-                                    onClick={closeMenu}
-                                >
-                                    Montagearbeiten
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/hausmeisterarbeiten"
-                                    className={mobileNavLinkClass}
-                                    onClick={closeMenu}
-                                >
-                                    Hausmeisterarbeiten
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/malerarbeiten"
-                                    className={mobileNavLinkClass}
-                                    onClick={closeMenu}
-                                >
-                                    Malerarbeiten
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/gartenarbeiten"
-                                    className={mobileNavLinkClass}
-                                    onClick={closeMenu}
-                                >
-                                    Gartenarbeiten
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink
-                                    to="/putzarbeiten"
-                                    className={mobileNavLinkClass}
-                                    onClick={closeMenu}
-                                >
-                                    Putzarbeiten
-                                </NavLink>
-                            </li>
+                            <li><NavLink to="/" className={mobileNavLinkClass} onClick={closeMenu}>Startseite</NavLink></li>
+                            <li><NavLink to="/montagearbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Montagearbeiten</NavLink></li>
+                            <li><NavLink to="/hausmeisterarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Hausmeisterarbeiten</NavLink></li>
+                            <li><NavLink to="/malerarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Malerarbeiten</NavLink></li>
+                            <li><NavLink to="/gartenarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Gartenarbeiten</NavLink></li>
+                            <li><NavLink to="/putzarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Putzarbeiten</NavLink></li>
                         </ul>
                         <div className="mt-auto pt-8 pb-8 space-y-4">
                             <Link
@@ -314,13 +266,6 @@ function Header() {
                                 className="flex h-14 items-center justify-center bg-[#083224] font-bold uppercase tracking-widest text-white shadow-lg shadow-[#083224]/20"
                             >
                                 Jetzt anfragen
-                            </Link>
-                            <Link
-                                to="/karriere"
-                                onClick={closeMenu}
-                                className="flex h-14 items-center justify-center border border-[#D9E7DC] font-bold uppercase tracking-widest text-[#083224]"
-                            >
-                                Karriere
                             </Link>
                             <a
                                 href="tel:015753137765"

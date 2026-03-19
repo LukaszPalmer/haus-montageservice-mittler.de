@@ -66,7 +66,8 @@ const ServiceProcess = () => {
                 <div className="mt-6 h-1 w-24 bg-[#2AA34D]" />
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-10 xl:gap-12">
+            {/* Angepasstes Grid: 2 Spalten ab 1024px (lg) und 1440px (xl), 4 Spalten erst ab 1700px (xl-max-width Bereich) */}
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 min-[1700px]:grid-cols-4 lg:gap-10 xl:gap-12">
                 {steps.map((step, index) => (
                     <div 
                         key={index}

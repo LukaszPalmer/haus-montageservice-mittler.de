@@ -1,9 +1,9 @@
-import MontageNewBanner from "../media/Montage_New_Banner.png";
-import HausmeiserReperaturGlühbirne from "../media/Reperatur_Hausmeiser.png";
-import montagePlaceholder3 from "../media/Montage222.png";
-import InstantHaltungHausmeister from "../media/Instanthaltung_Hausmeister.png";
-import ObjektServiceHausmeister from "../media/ObjectServiceHausmeiser.png";
-import montagePlaceholder6 from "../media/KleineReperaturenHausmeister.png";
+import Montage_Küche_XL_Query_Quadratformat from '../media/Montage_AVIF/KüchenMontage_XL_Query_QuadratFormat.png';
+import New_Montage_Büro_Einrichtung_Querformat_XL_Query from '../media/Montage_AVIF/XL_QUERY_QUERFORMAT_BÜROEINRICHTUNG.png';
+import Badezimmer_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Banezimmermontage_XL_Query_Quadratformat.png';
+import Wohnzimmer_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Wohnzimmer_Montage_XL_Query_Quadrat_Format.png';
+import Klein_Montage_XL_Query_Quadrat_Format from '../media/Montage_AVIF/Kleinmontage_XL_Query_Quadratform.png';
+import Möbelmontage_XL_Query_Querformat from '../media/Montage_AVIF/Möbel_Montage_XL_Query_Querformat.png';
 
 import ServiceProcess from '../components/HausmeisterComponents/ServiceProcess.jsx';
 import FAQSection from "./HausmeisterComponents/FAQSection.jsx";
@@ -19,7 +19,7 @@ function MontageLeistungenGrid() {
                     <span className="font-semibold text-[#2AA34D]">stabile Ausführung</span> und ein perfektes Ergebnis nach Herstellervorgaben.
                 </>
             ),
-            image: MontageNewBanner,
+            image: Möbelmontage_XL_Query_Querformat,
             link: "/kontakt",
             wrapper: "md:col-span-2",
             imageHeight: "h-64 md:h-[400px] lg:h-[450px] xl:h-[500px] 2xl:h-[580px] min-[2200px]:h-[650px]",
@@ -33,7 +33,7 @@ function MontageLeistungenGrid() {
                     <span className="font-semibold text-[#2AA34D]">sichere Verankerung</span> in jedem Untergrund und sorgen für ein optisch einwandfreies Gesamtbild Ihrer Räume.
                 </>
             ),
-            image: HausmeiserReperaturGlühbirne,
+            image: Klein_Montage_XL_Query_Quadrat_Format,
             link: "/kontakt",
             wrapper: "md:col-span-1",
             imageHeight: "h-56 md:h-[300px] lg:h-[340px] xl:h-[380px] 2xl:h-[420px] min-[2200px]:h-[460px]",
@@ -47,7 +47,7 @@ function MontageLeistungenGrid() {
                     <span className="font-semibold text-[#2AA34D]">millimetergenaue Ausrichtung</span> und sorgen dafür, dass alle Komponenten funktional und optisch perfekt integriert werden.
                 </>
             ),
-            image: montagePlaceholder3,
+            image: Montage_Küche_XL_Query_Quadratformat,
             link: "/kontakt",
             wrapper: "md:col-span-1",
             imageHeight: "h-56 md:h-[300px] lg:h-[340px] xl:h-[380px] 2xl:h-[420px] min-[2200px]:h-[460px]",
@@ -61,35 +61,37 @@ function MontageLeistungenGrid() {
                     <span className="font-semibold text-[#2AA34D]">strukturierte Arbeitsweise</span> minimieren wir Ausfallzeiten in Ihrem Betrieb und garantieren höchste Belastbarkeit.
                 </>
             ),
-            image: InstantHaltungHausmeister,
+            image: New_Montage_Büro_Einrichtung_Querformat_XL_Query,
             link: "/kontakt",
             wrapper: "md:col-span-2",
             imageHeight: "h-56 md:h-[320px] lg:h-[360px] xl:h-[400px] 2xl:h-[440px] min-[2200px]:h-[480px]",
             titleSize: "text-[1.5rem] md:text-[1.9rem] lg:text-[2.2rem] xl:text-[2.5rem] 2xl:text-[2.8rem] min-[2200px]:text-[3.2rem]",
         },
         {
-            title: "Reparaturmontage",
+            title: "Wohnzimmermontage",
             text: (
                 <>
-                    Instandsetzung beschädigter Beschläge, Scharniere oder Griffe. Unser{" "}
-                    <span className="font-semibold text-[#2AA34D]">Montageservice</span> bringt Ihre vorhandene Einrichtung wieder in Top-Zustand, bevor ein teurer Neukauf nötig wird.
+                    Ihre Experten für die{" "}
+                    <span className="font-semibold text-[#2AA34D]">Installation von Wohnwänden</span>, TV-Halterungen und Designermöbeln. Wir schaffen durch{" "}
+                    <span className="font-semibold text-[#2AA34D]">präzise Montagearbeit</span> eine harmonische Wohnatmosphäre und sicheren Halt für Ihre hochwertige Einrichtung.
                 </>
             ),
-            image: ObjektServiceHausmeister,
+            image: Wohnzimmer_Montage_XL_Query_Quadrat_Format,
             link: "/kontakt",
             wrapper: "md:col-span-1",
             imageHeight: "h-56 md:h-[300px] lg:h-[340px] xl:h-[380px] 2xl:h-[420px] min-[2200px]:h-[460px]",
             titleSize: "text-[1.4rem] md:text-[1.7rem] lg:text-[1.9rem] xl:text-[2.2rem] 2xl:text-[2.5rem] min-[2200px]:text-[2.8rem]",
         },
         {
-            title: "Spezialmontagen",
+            title: "Badezimmermontage",
             text: (
                 <>
-                    Individuelle Lösungen für alles, was nicht von der Stange kommt. Ob Wandhalterungen für Technik oder komplexe Dekorationen – wir finden für jede Herausforderung eine{" "}
-                    <span className="font-semibold text-[#2AA34D]">fachgerechte Lösung</span> für Ihre Räume.
+                    Fachgerechte Montage von Badmöbeln, Spiegelschränken und Zubehör. Unser Team garantiert eine{" "}
+                    <span className="font-semibold text-[#2AA34D]">saubere Installation</span> unter Berücksichtigung der Bausubstanz, um Ihre{" "}
+                    <span className="font-semibold text-[#2AA34D]">Bad-Ausstattung</span> perfekt und langlebig zu integrieren.
                 </>
             ),
-            image: montagePlaceholder6,
+            image: Badezimmer_Montage_XL_Query_Quadrat_Format,
             link: "/kontakt",
             wrapper: "md:col-span-1",
             imageHeight: "h-56 md:h-[300px] lg:h-[340px] xl:h-[380px] 2xl:h-[420px] min-[2200px]:h-[460px]",

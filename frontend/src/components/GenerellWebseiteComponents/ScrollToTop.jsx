@@ -11,14 +11,12 @@ function ScrollToTop() {
             const scrolled = window.scrollY;
             const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
             
-            // Sichtbarkeit ab 300px
             if (scrolled > 300) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
             }
 
-            // Fortschritt in Prozent berechnen
             if (scrollHeight > 0) {
                 setProgress((scrolled / scrollHeight) * 100);
             }
@@ -37,16 +35,19 @@ function ScrollToTop() {
 
     return (
         <div 
-            className={`fixed bottom-6 right-6 z-[120] transition-all duration-500 ease-in-out md:bottom-10 md:right-10 ${
+            // Abstände nach rechts (right) wurden minimiert:
+            // Mobile S/M/L: right-2 (ca. 8px)
+            // Tablet/Laptop: md:right-4 (ca. 16px)
+            // 4K: xl:right-6 (ca. 24px)
+            className={`fixed z-[120] bottom-4 right-2 sm:right-3 md:bottom-6 md:right-4 lg:bottom-8 lg:right-5 xl:bottom-10 xl:right-6 2xl:bottom-12 transition-all duration-500 ease-in-out ${
                 isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0 pointer-events-none"
             }`}
         >
             <button
                 onClick={scrollToTop}
                 aria-label="Nach oben scrollen"
-                className="group relative flex h-12 w-12 items-center justify-center rounded-full bg-[#083224] text-white shadow-2xl transition-transform hover:scale-110 active:scale-90 md:h-14 md:w-14 lg:h-16 lg:w-16"
+                className="group relative flex items-center justify-center rounded-full bg-[#083224] text-white shadow-2xl transition-transform hover:scale-110 active:scale-90 h-10 w-10 sm:h-12 sm:w-12 md:h-12 md:w-12 lg:h-14 lg:w-14 xl:h-14 xl:w-14 2xl:h-16 2xl:w-16"
             >
-                {/* SVG Ring für den Scroll-Fortschritt */}
                 <svg className="absolute inset-0 h-full w-full -rotate-90">
                     <circle
                         cx="50%"
@@ -70,12 +71,10 @@ function ScrollToTop() {
                     />
                 </svg>
 
-                {/* Pfeil Icon mit Schweb-Effekt */}
                 <FiArrowUp 
-                    className="relative z-10 text-xl transition-transform group-hover:-translate-y-1 md:text-2xl" 
+                    className="relative z-10 transition-transform group-hover:-translate-y-1 text-lg sm:text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl" 
                 />
 
-                {/* Pulsierender Effekt im Hintergrund beim Hover */}
                 <span className="absolute inset-0 -z-10 animate-ping rounded-full bg-[#2AA34D] opacity-0 group-hover:opacity-20"></span>
             </button>
         </div>
