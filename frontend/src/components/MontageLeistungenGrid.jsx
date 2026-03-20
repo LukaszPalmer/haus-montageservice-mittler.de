@@ -87,7 +87,7 @@ function MontageLeistungenGrid() {
             text: (
                 <>
                     Fachgerechte Montage von Badmöbeln, Spiegelschränken und Zubehör. Unser Team garantiert eine{" "}
-                    <span className="font-semibold text-[#2AA34D]">saubere Installation</span> unter Berücksichtigung der Bausubstanz, um Ihre{" "}
+                    <span className="font-semibold text-[#2AA34D]">sorgfältige Montage</span> der Einrichtungselemente, um Ihre{" "}
                     <span className="font-semibold text-[#2AA34D]">Bad-Ausstattung</span> perfekt und langlebig zu integrieren.
                 </>
             ),

@@ -46,14 +46,14 @@ function Home() {
             title: "Hausmeister",
             text: "Zuverlässige Unterstützung bei Pflege, Kontrolle und Werterhalt Ihres Objekts.",
             image: HausmeisterArbeiten,
-            link: "/montage-hausmeisterarbeiten",
+            link: "/hausmeisterarbeiten",
             span: "col-span-1",
         },
         {
             title: "Montage",
             text: "Fachgerechte Montage von Möbeln und praktischen Lösungen im Haus.",
             image: MontageArbeiten,
-            link: "/montage-hausmeisterarbeiten",
+            link: "/montagearbeiten",
             span: "col-span-1",
         },
         {

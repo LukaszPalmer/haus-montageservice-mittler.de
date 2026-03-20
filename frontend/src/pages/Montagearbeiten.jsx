@@ -38,7 +38,7 @@ function MontageHausmeisterarbeiten() {
                             <span className="text-white font-medium">
                                 professionelle Montagen
                             </span>
-                            , Installationen und fachgerechte Ausführungen
+                            , Aufbauten und fachgerechte Ausführungen
                             direkt vor Ort in Düsseldorf.
                         </p>
                         <div className="mt-12 flex flex-col gap-4">
@@ -68,7 +68,7 @@ function MontageHausmeisterarbeiten() {
                         <div className="w-full px-10">
                             <div className="max-w-[600px]">
                                 <span className="font-sans text-[0.9rem] font-bold uppercase tracking-[0.25em] text-[#D7F2DD]">
-                                    Montage & Installation
+                                    Montage & Aufbau
                                 </span>
                                 <h1 className="font-heading mt-4 text-[4rem] font-extrabold leading-[1] tracking-[-0.03em] text-white">
                                     Experten für<br />
@@ -131,7 +131,7 @@ function MontageHausmeisterarbeiten() {
                                     <span className="font-semibold text-white">
                                         hochwertige Montagearbeiten
                                     </span>{" "}
-                                    und anspruchsvolle Installationen. Wir sorgen dafür, dass jedes Detail perfekt sitzt.
+                                    und den zuverlässigen Aufbau von Einrichtungselementen. Wir sorgen dafür, dass jedes Detail perfekt sitzt.
                                 </p>
                                 <div className="mt-12 flex items-center gap-6">
                                     <a
@@ -197,9 +197,9 @@ function MontageHausmeisterarbeiten() {
                     <span className="text-[#2AA34D] font-medium">
                         Möbelmontage
                     </span>{" "}
-                    bis hin zu komplexen{" "}
+                    bis hin zu passgenauen{" "}
                     <span className="text-[#2AA34D] font-medium">
-                        Systeminstallationen
+                        Möbelsystemen
                     </span>
                     : Wir unterstützen Sie zuverlässig und kompetent bei Ihren Montagevorhaben.
                 </p>
