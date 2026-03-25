@@ -42,8 +42,6 @@ function AppRouter() {
                     <Route path="/impressum" element={<Impressum />} />
                 </Routes>
             </main>
-            
-            <MobileFooter />
         </BrowserRouter>
     );
 }
