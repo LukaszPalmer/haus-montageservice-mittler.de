@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header.jsx";
 import ScrollToTop from "../components/GenerellWebseiteComponents/ScrollToTop.jsx";
+import MobileFooter from "../components/MobileFooter.jsx"; // Footer Import
 import Home from "../pages/Home";
 import Montagearbeiten from "../pages/Montagearbeiten.jsx";
 import Malerarbeiten from "../pages/Malerarbeiten";
@@ -9,6 +10,8 @@ import Gartenarbeiten from "../pages/Gartenarbeiten";
 import Putzarbeiten from "../pages/Putzarbeiten";
 import Kontakt from "../components/KontaktComponents/Kontakt.jsx";
 import Karriere from "../components/KarriereComponents/Karriere.jsx";
+import Datenschutz from '../pages/Datenschutz.jsx';
+import Impressum from '../pages/Impressum.jsx';
 
 function AppRouter() {
     return (
@@ -35,8 +38,12 @@ function AppRouter() {
                     <Route path="/putzarbeiten" element={<Putzarbeiten />} />
                     <Route path="/kontakt" element={<Kontakt />} />
                     <Route path="/karriere" element={<Karriere />} />
+                    <Route path="/datenschutz" element={<Datenschutz />} />
+                    <Route path="/impressum" element={<Impressum />} />
                 </Routes>
             </main>
+            
+            <MobileFooter />
         </BrowserRouter>
     );
 }
