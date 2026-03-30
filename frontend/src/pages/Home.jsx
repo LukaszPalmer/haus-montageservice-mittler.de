@@ -43,15 +43,15 @@ function Home() {
             span: "col-span-2",
         },
         {
-            title: "Hausmeister",
+            title: "Hausmeisterarbeiten",
             text: "Zuverlässige Unterstützung bei Pflege, Kontrolle und Werterhalt Ihres Objekts.",
             image: HausmeisterArbeiten,
             link: "/hausmeisterarbeiten",
             span: "col-span-1",
         },
         {
-            title: "Montage",
-            text: "Fachgerechte Montage von Möbeln und praktischen Lösungen im Haus.",
+            title: "Montagearbeiten",
+            text: "Fachgerechte Montagearbeiten von Möbeln und praktischen Lösungen im Haus.",
             image: MontageArbeiten,
             link: "/montagearbeiten",
             span: "col-span-1",
@@ -64,7 +64,7 @@ function Home() {
             span: "col-span-2",
         },
         {
-            title: "Reinigung",
+            title: "Reinigungsarbeiten",
             text: "Gründliche Sauberkeit für Gastronomie, Privathaushalte und Geschäftsräume.",
             image: PutzArbeiten,
             link: "/putzarbeiten",
@@ -111,13 +111,13 @@ function Home() {
                         </span>
                         <h1 className="font-heading mb-8 text-4xl font-extrabold leading-[1.1] text-white">
                             Haus, Garten <br />
-                            & Montage aus <br />
+                            & Montagearbeiten aus <br />
                             <span className="text-[#2AA34D]">einer Hand</span>
                         </h1>
                         <p className="mx-auto max-w-sm font-sans text-[1rem] leading-relaxed text-slate-200">
                             Ihr Partner für{" "}
-                            <span className="text-white font-medium">Reinigung</span>, 
-                            Montage und professionelle Objektservice-Leistungen.
+                            <span className="text-white font-medium">Reinigungsarbeiten</span>,
+                            Montagearbeiten und professionelle Objektservice-Leistungen.
                         </p>
                         <div className="mt-12">
                             <a
@@ -146,14 +146,14 @@ function Home() {
                     <div className="absolute inset-0 flex items-center px-10">
                         <div className="max-w-[600px]">
                             <span className="font-sans text-[0.9rem] font-bold uppercase tracking-[0.25em] text-[#D7F2DD]">
-                                Haus, Garten & Montage
+                                Haus, Garten & Montagearbeiten
                             </span>
                             <h1 className="font-heading mt-4 text-[4rem] font-extrabold leading-[1] text-white">
                                 Alles rund ums <br />
                                 <span className="text-[#2AA34D]">Haus.</span>
                             </h1>
                             <p className="mt-6 font-sans text-[1.2rem] leading-relaxed text-slate-200">
-                                Ihr Partner für Reinigung, Montage, Gartenpflege und Hausservice in Düsseldorf.
+                                Ihr Partner für Reinigungsarbeiten, Montagearbeiten, Gartenpflege und Hausservice in Düsseldorf.
                             </p>
                             <div className="mt-10 flex gap-5">
                                 <a
@@ -194,7 +194,7 @@ function Home() {
                                 </span>
                                 <h1 className="font-heading mt-6 text-[5.5rem] font-extrabold leading-[0.9] tracking-[-0.04em] text-white xl:text-[6.5rem] 2xl:text-[7.2rem] min-[2200px]:text-[8rem]">
                                     Haus, Garten & <br />
-                                    <span className="text-[#2AA34D]">Montage.</span>
+                                    <span className="text-[#2AA34D]">Montagearbeiten.</span>
                                 </h1>
                                 <p className="mt-8 max-w-[750px] font-sans text-[1.4rem] leading-relaxed text-slate-200 xl:text-[1.6rem] 2xl:text-[1.8rem]">
                                     Alles aus einer Hand. Wir sorgen für{" "}

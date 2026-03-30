@@ -44,9 +44,9 @@ const SEARCH_DATA = [
         ],
     },
     {
-        category: "Montage & Hausmeister",
+        category: "Montagearbeiten & Hausmeisterarbeiten",
         path: "/montage-hausmeisterarbeiten",
-        items: ["Montage", "Hausmeisterservice", "Reparaturen"],
+        items: ["Montagearbeiten", "Hausmeisterservice", "Reparaturen"],
     },
 ];
 

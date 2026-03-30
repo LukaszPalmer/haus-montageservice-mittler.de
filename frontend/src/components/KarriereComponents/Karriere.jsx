@@ -186,7 +186,7 @@ function Karriere() {
                                                 Bitte wählen...
                                             </option>
                                             <option value="Montage">
-                                                Montage & Handwerk
+                                                Montagearbeiten & Handwerk
                                             </option>
                                             <option value="Garten">
                                                 Gartenpflege
@@ -195,7 +195,7 @@ function Karriere() {
                                                 Renovierungsarbeiten
                                             </option>
                                             <option value="Reinigung">
-                                                Reinigung
+                                                Reinigungsarbeiten
                                             </option>
                                         </select>
                                     </div>

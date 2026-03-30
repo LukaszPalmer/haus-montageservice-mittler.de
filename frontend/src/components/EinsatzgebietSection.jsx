@@ -35,7 +35,7 @@ export default function EinsatzgebietSection() {
                         </p>
                         
                         <p className="font-sans mt-4 max-w-[550px] text-[0.95rem] leading-7 text-[#556963] md:text-[1.05rem] lg:text-[1.15rem] xl:text-[1.25rem]">
-                            Zuverlässiger Service in Reinigung, Gartenpflege, Montage und Hausmeisterservice direkt vor Ihrer Haustür.
+                            Zuverlässiger Service in Reinigungsarbeiten, Gartenpflege, Montagearbeiten und Hausmeisterarbeiten direkt vor Ihrer Haustür.
                         </p>
 
                         <div className="mt-8 flex items-center gap-3 md:mt-10">

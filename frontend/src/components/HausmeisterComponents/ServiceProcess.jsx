@@ -45,7 +45,7 @@ const ServiceProcess = () => {
             icon: <FiCheckCircle className="text-3xl" />,
             text: (
                 <>
-                    Unser Team führt die Montage{" "}
+                    Unser Team führt die Montagearbeiten{" "}
                     <span className="text-[#2AA34D] font-semibold">sauber und präzise</span> aus. 
                     Wir hinterlassen Ihren Raum bezugsfertig und ordentlich.
                 </>
@@ -61,7 +61,7 @@ const ServiceProcess = () => {
                 </span>
                 <h2 className="font-heading mt-4 text-[2.2rem] font-extrabold uppercase leading-[1.1] tracking-[-0.03em] text-[#083224] md:text-[3rem] lg:text-[4rem] xl:text-[4.5rem]">
                     In 4 Schritten zu Ihrer <br />
-                    <span className="text-[#2AA34D]">perfekten Montage</span>
+                    <span className="text-[#2AA34D]">perfekten Montagearbeiten</span>
                 </h2>
                 <div className="mt-6 h-1 w-24 bg-[#2AA34D]" />
             </div>
@@ -92,7 +92,7 @@ const ServiceProcess = () => {
 
             <div className="absolute -bottom-10 left-0 right-0 hidden select-none justify-center opacity-[0.02] lg:flex">
                 <span className="font-heading text-[12rem] font-black uppercase text-[#083224]">
-                    Montage
+                    Montagearbeiten
                 </span>
             </div>
         </section>

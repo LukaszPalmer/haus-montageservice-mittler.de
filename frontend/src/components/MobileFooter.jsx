@@ -78,7 +78,7 @@ function MobileFooter() {
                                 {[
                                     { name: "Startseite", path: "/" },
                                     {
-                                        name: "Montage & Service",
+                                        name: "Montagearbeiten & Service",
                                         path: "/montage-hausmeisterarbeiten",
                                     },
                                     {
@@ -90,7 +90,7 @@ function MobileFooter() {
                                         path: "/gartenarbeiten",
                                     },
                                     {
-                                        name: "Reinigung",
+                                        name: "Reinigungsarbeiten",
                                         path: "/putzarbeiten",
                                     },
                                 ].map((link) => (

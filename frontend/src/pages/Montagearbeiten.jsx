@@ -31,7 +31,7 @@ function MontageHausmeisterarbeiten() {
                         </span>
                         <h1 className="font-heading mb-8 text-4xl font-extrabold leading-[1.1] text-white">
                             Fachgerechte <br />
-                            <span className="text-[#2AA34D]">Montage</span>
+                            <span className="text-[#2AA34D]">Montagearbeiten</span>
                         </h1>
                         <p className="mx-auto max-w-sm font-sans text-[1rem] leading-relaxed text-slate-200">
                             Ihr zuverlässiger Partner für{" "}
@@ -68,7 +68,7 @@ function MontageHausmeisterarbeiten() {
                         <div className="w-full px-10">
                             <div className="max-w-[600px]">
                                 <span className="font-sans text-[0.9rem] font-bold uppercase tracking-[0.25em] text-[#D7F2DD]">
-                                    Montage & Aufbau
+                                    Montagearbeiten & Aufbau
                                 </span>
                                 <h1 className="font-heading mt-4 text-[4rem] font-extrabold leading-[1] tracking-[-0.03em] text-white">
                                     Experten für<br />
@@ -123,7 +123,7 @@ function MontageHausmeisterarbeiten() {
                                 <h1 className="font-heading mt-6 text-[5.5rem] font-extrabold leading-[0.9] tracking-[-0.04em] text-white xl:text-[6.5rem] 2xl:text-[7.2rem] min-[2200px]:text-[8rem]">
                                     Präzise<br />
                                     <span className="text-[#2AA34D]">
-                                        Montage
+                                        Montagearbeiten
                                     </span>
                                 </h1>
                                 <p className="mt-8 max-w-[750px] font-sans text-[1.4rem] leading-relaxed text-slate-200 xl:text-[1.6rem] 2xl:text-[1.8rem]">

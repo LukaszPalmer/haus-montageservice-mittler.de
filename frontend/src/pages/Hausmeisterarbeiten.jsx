@@ -26,7 +26,7 @@ function Hausmeisterarbeiten() {
                 <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
                     <div className="mt-10">
                         <span className="mb-4 block text-[0.75rem] font-bold uppercase tracking-[0.2em] text-[#D7F2DD]">Werterhalt & Pflege</span>
-                        <h1 className="font-heading mb-8 text-4xl font-extrabold leading-[1.1] text-white">Objekt- & <br /><span className="text-[#2AA34D]">Hausmeister</span></h1>
+                        <h1 className="font-heading mb-8 text-4xl font-extrabold leading-[1.1] text-white">Objekt- & <br /><span className="text-[#2AA34D]">Hausmeisterarbeiten</span></h1>
                         <p className="mx-auto max-w-sm font-sans text-[1rem] leading-relaxed text-slate-200">Zuverlässige <span className="text-white font-medium">Immobilienbetreuung</span> und schnelle Reparaturen für Ihr Objekt in Düsseldorf.</p>
                         <div className="mt-12">
                             <a href="#erste-dienstleistung" onClick={scrollToLeistungen} className="inline-flex items-center justify-center bg-[#2AA34D] px-8 py-4 font-sans text-sm font-bold uppercase tracking-widest text-white shadow-lg">Leistungen <FiArrowDown className="ml-2" /></a>
@@ -43,7 +43,7 @@ function Hausmeisterarbeiten() {
                     <div className="absolute inset-0 flex items-center px-10">
                         <div className="max-w-[600px]">
                             <span className="font-sans text-[0.9rem] font-bold uppercase tracking-[0.25em] text-[#D7F2DD]">Objektpflege & Service</span>
-                            <h1 className="font-heading mt-4 text-[4rem] font-extrabold leading-[1] text-white">Ihr <span className="text-[#2AA34D]">Hausmeister</span></h1>
+                            <h1 className="font-heading mt-4 text-[4rem] font-extrabold leading-[1] text-white">Ihr <span className="text-[#2AA34D]">Hausmeisterarbeiten</span></h1>
                             <div className="mt-10 flex gap-5">
                                 <a href="#erste-dienstleistung" onClick={scrollToLeistungen} className="bg-[#2AA34D] px-8 py-4 text-[1rem] font-bold uppercase text-white transition-all">Leistungen</a>
                                 <a href="/kontakt" className="border border-white/30 bg-white/10 px-8 py-4 text-[1rem] font-bold uppercase text-white backdrop-blur-md">Anfragen</a>
