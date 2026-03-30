@@ -36,7 +36,7 @@ function Home() {
 
     const leistungen = [
         {
-            title: "Malerarbeiten",
+            title: "Renovierungsarbeiten",
             text: "Saubere und präzise Arbeiten für Innenräume, Wände und kleine Ausbesserungen.",
             image: MalerArbeiten,
             link: "/malerarbeiten",

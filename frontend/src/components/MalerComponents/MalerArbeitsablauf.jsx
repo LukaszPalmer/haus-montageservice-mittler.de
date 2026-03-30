@@ -28,7 +28,7 @@ const MalerArbeitsablauf = () => {
                     <span className="text-[#2AA34D] font-semibold">
                         transparentes Angebot
                     </span>{" "}
-                    für Ihre Malerarbeiten – inklusive aller Material- und
+                    für Ihre Renovierungsarbeiten – inklusive aller Material- und
                     Lohnkosten.
                 </>
             ),

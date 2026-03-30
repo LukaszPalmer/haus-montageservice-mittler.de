@@ -171,7 +171,7 @@ function Kontakt() {
                                                 Montage & Aufbau
                                             </option>
                                             <option value="Maler">
-                                                Malerarbeiten
+                                                Renovierungsarbeiten
                                             </option>
                                         </select>
                                     </div>

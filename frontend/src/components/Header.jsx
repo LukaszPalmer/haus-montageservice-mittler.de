@@ -204,7 +204,7 @@ function Header() {
                             {[
                                 { name: "Montagearbeiten", path: "/montagearbeiten" },
                                 { name: "Hausmeisterarbeiten", path: "/hausmeisterarbeiten" },
-                                { name: "Malerarbeiten", path: "/malerarbeiten" },
+                                { name: "Renovierungsarbeiten", path: "/malerarbeiten" },
                                 { name: "Gartenarbeiten", path: "/gartenarbeiten" },
                                 { name: "Putzarbeiten", path: "/putzarbeiten" },
                             ].map((item) => (
@@ -255,7 +255,7 @@ function Header() {
                             <li><NavLink to="/" className={mobileNavLinkClass} onClick={closeMenu}>Startseite</NavLink></li>
                             <li><NavLink to="/montagearbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Montagearbeiten</NavLink></li>
                             <li><NavLink to="/hausmeisterarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Hausmeisterarbeiten</NavLink></li>
-                            <li><NavLink to="/malerarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Malerarbeiten</NavLink></li>
+                            <li><NavLink to="/malerarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Renovierungsarbeiten</NavLink></li>
                             <li><NavLink to="/gartenarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Gartenarbeiten</NavLink></li>
                             <li><NavLink to="/putzarbeiten" className={mobileNavLinkClass} onClick={closeMenu}>Putzarbeiten</NavLink></li>
                         </ul>

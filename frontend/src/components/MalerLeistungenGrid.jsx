@@ -310,7 +310,7 @@ function MalerLeistungenGrid() {
                         Unsere Leistungen
                     </span>
                     <h2 className="font-heading mt-4 text-[2rem] font-extrabold uppercase leading-[0.95] text-[#083224] md:text-[3rem] lg:text-[3.8rem] xl:text-[4.4rem]">
-                        Malerarbeiten im Überblick
+                        Renovierungsarbeiten im Überblick
                     </h2>
                     <p className="mt-5 max-w-[860px] font-sans text-[1rem] leading-7 text-[#42514A] md:text-[1.15rem]">
                         Erstklassige Malerleistungen für ein schönes, modernes

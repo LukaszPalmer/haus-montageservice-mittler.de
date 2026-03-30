@@ -192,7 +192,7 @@ function Karriere() {
                                                 Gartenpflege
                                             </option>
                                             <option value="Maler">
-                                                Malerarbeiten
+                                                Renovierungsarbeiten
                                             </option>
                                             <option value="Reinigung">
                                                 Reinigung

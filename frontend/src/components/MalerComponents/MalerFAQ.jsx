@@ -5,7 +5,7 @@ const MalerFAQ = () => {
     const [open, setOpen] = useState(null);
     const faqs = [
         { 
-            q: "Verwenden Sie für die Malerarbeiten Profi-Farben?", 
+            q: "Verwenden Sie für die Renovierungsarbeiten Profi-Farben?",
             a: (
                 <>
                     Ja, wir nutzen ausschließlich <span className="text-[#2AA34D] font-semibold">hochwertige Dispersions- und Silikatfarben</span> namhafter Hersteller. Diese garantieren eine exzellente Deckkraft, sind <span className="text-[#2AA34D] font-semibold">emissionsarm und langlebig</span>. Falls Sie bereits eine spezifische Wunschfarbe bereitgestellt haben, verarbeiten wir diese selbstverständlich ebenso fachgerecht und präzise.
@@ -46,7 +46,7 @@ const MalerFAQ = () => {
                 <div className="flex flex-col justify-start">
                     <div className="sticky top-10">
                         <span className="font-sans text-xs font-bold uppercase tracking-[0.3em] text-[#2AA34D] md:text-sm">
-                            FAQ Malerarbeiten
+                            FAQ Renovierungsarbeiten
                         </span>
                         <h2 className="font-heading mt-6 text-[2.8rem] font-extrabold leading-[1.1] text-[#083224] md:text-[4rem] xl:text-[4.5rem]">
                             Häufige <br /><span className="text-[#2AA34D]">Fragen.</span>

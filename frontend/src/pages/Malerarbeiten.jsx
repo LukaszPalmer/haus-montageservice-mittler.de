@@ -45,7 +45,7 @@ function Malerarbeiten() {
                     {/* Mobile L & Default */}
                     <img
                         src={New_Malerbanner_Mobile_L_Query}
-                        alt="Professionelle Malerarbeiten und Renovierung"
+                        alt="Professionelle Renovierungsarbeiten und Renovierung"
                         className="h-[100vh] w-full object-cover object-center transition-transform duration-[2000ms] lg:hover:scale-105"
                     />
                 </picture>
@@ -59,7 +59,7 @@ function Malerarbeiten() {
                         <h1 className="font-heading mb-8 text-4xl font-extrabold leading-[1.1] text-white">
                             Moderne <br />
                             <span className="text-[#2AA34D]">
-                                Malerarbeiten
+                                Renovierungsarbeiten
                             </span>
                         </h1>
                         <p className="mx-auto max-sm font-sans text-[1rem] leading-relaxed text-slate-200">
@@ -178,7 +178,7 @@ function Malerarbeiten() {
                         <h2 className="font-heading mt-6 text-[3.5rem] font-extrabold leading-[1] tracking-[-0.03em] text-[#083224] xl:text-[4.5rem] 2xl:text-[5.5rem]">
                             Professionelle{" "}
                             <span className="text-[#2AA34D]">
-                                Malerarbeiten
+                                Renovierungsarbeiten
                             </span>{" "}
                             für ein schönes Zuhause.
                         </h2>

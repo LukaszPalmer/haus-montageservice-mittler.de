@@ -32,7 +32,7 @@ const SEARCH_DATA = [
         ],
     },
     {
-        category: "Malerarbeiten",
+        category: "Renovierungsarbeiten",
         path: "/malerarbeiten",
         items: [
             "Allgemeine Malerhilfe",

@@ -25,7 +25,7 @@ function MobileJobsApplicationSection() {
 
                         <p className="font-sans mt-5 max-w-[320px] text-[1rem] leading-7 text-[#42514A] md:mt-6 md:max-w-[700px] md:text-[1.15rem] md:leading-9 lg:max-w-[860px] lg:text-[1.28rem] lg:leading-10 xl:mt-7 xl:max-w-[980px] xl:text-[1.4rem] xl:leading-10 2xl:max-w-[1080px] 2xl:text-[1.52rem] min-[2200px]:max-w-[1180px] min-[2200px]:text-[1.64rem] min-[2200px]:leading-[2.9rem]">
                             Wir suchen zuverlässige Unterstützung für Reinigung,
-                            Malerarbeiten, Hausmeisterservice, Möbeltransport,
+                            Renovierungsarbeiten, Hausmeisterservice, Möbeltransport,
                             Gartenarbeiten und Montage.
                         </p>
 

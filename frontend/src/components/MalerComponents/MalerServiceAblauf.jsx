@@ -22,7 +22,7 @@ const MalerServiceAblauf = () => {
                 <>
                     Sie erhalten ein{" "}
                     <span className="text-[#2AA34D] font-semibold">transparentes Angebot</span>{" "}
-                    für Ihre Malerarbeiten – inklusive aller Material- und Lohnkosten.
+                    für Ihre Renovierungsarbeiten – inklusive aller Material- und Lohnkosten.
                 </>
             ),
             icon: <FileText className="w-6 h-6 text-[#2AA34D]" />,

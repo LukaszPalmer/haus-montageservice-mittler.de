@@ -82,7 +82,7 @@ function MobileFooter() {
                                         path: "/montage-hausmeisterarbeiten",
                                     },
                                     {
-                                        name: "Malerarbeiten",
+                                        name: "Renovierungsarbeiten",
                                         path: "/malerarbeiten",
                                     },
                                     {

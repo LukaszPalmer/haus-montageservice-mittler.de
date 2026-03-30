@@ -5,7 +5,7 @@ const MalerFAQBereich = () => {
     const [open, setOpen] = useState(null);
     const fragen = [
         {
-            q: "Verwenden Sie für die Malerarbeiten Profi-Farben?",
+            q: "Verwenden Sie für die Renovierungsarbeiten Profi-Farben?",
             a: (
                 <>
                     Absolut. Wir verwenden ausschließlich{" "}
