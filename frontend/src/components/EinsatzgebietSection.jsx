@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function EinsatzgebietSection() {
     const nearbyCities = [
+        "Düsseldorf",
         "Neuss",
         "Ratingen",
         "Meerbusch",
