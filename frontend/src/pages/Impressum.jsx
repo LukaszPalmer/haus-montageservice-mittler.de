@@ -120,6 +120,10 @@ const Impressum = () => {
                         von entsprechenden Rechtsverletzungen werden wir diese
                         Inhalte umgehend entfernen.
                     </p>
+                    <p>
+                        Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG:
+                        DE123456789
+                    </p>
                 </div>
             </section>
         </div>
